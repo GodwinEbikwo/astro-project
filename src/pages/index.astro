@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Home from '../components/Home.astro';
+import Accolades from '../components/Accolades.astro';
+---
+
+<Layout title='Astro test site'>
+  <main class='main'>
+    <Home />
+    <Accolades />
+  </main>
+</Layout>
+
+<style lang='scss'>
+  .main {
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
+    flex-grow: 1;
+  }
+</style>

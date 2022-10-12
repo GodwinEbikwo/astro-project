@@ -1,0 +1,216 @@
+<div class='root'>
+  <section class='container'>
+    <!-- <div class='progress-bar'></div> -->
+    <div class='f_dummy'>
+      <div class='flex ai jc'>
+        <div class='relative overflow-hidden w-full ss'>
+          <h1 id='title' class='title'>Réplica</h1>
+          <div class='line-border'></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- <div class='dummy'>
+  <div class='relative overflow-hidden'>
+    <h1 id='Dtitle'>Hi</h1>
+  </div>
+</div> -->
+
+<div class='dummy'>
+  <div class='relative overflow-hidden'>
+    <h1 id='Dtitle' class='ch'>
+      Work-life balance really means something in Sweden. You’ll never be short
+      of time – or opportunity – to enjoy your new home away from home with
+      culture around the corner and freedom to roam a wilderness unlike anywhere
+      else on earth.
+    </h1>
+  </div>
+</div>
+
+<style lang='scss'>
+  .root {
+    --vh: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: var(--py);
+  }
+
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: orangered;
+    transform: scaleX(0);
+    transform-origin: 0%;
+    z-index: 100;
+  }
+
+  .line-border {
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: 0%;
+    background-color: var(--border-color);
+  }
+
+  .container {
+    width: 100%;
+    position: relative;
+    background-color: var(--fg);
+    border: 1px solid var(--border-color);
+    border-bottom: 0px solid var(--border-color);
+    min-height: calc(var(--vh) - 2rem);
+  }
+
+  .f_dummy {
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    height: calc(100vh - var(--py) * 1.12);
+    min-height: calc(100vh - var(--py) * 1.12);
+    background-color: black;
+
+    .ss {
+      position: absolute;
+      top: 30px;
+      overflow: hidden;
+      width: 100%;
+
+      @media (min-width: 768px) {
+        top: -40px;
+      }
+      @media (min-width: 1025px) {
+        top: -80px;
+      }
+    }
+
+    // .box_cont {
+    //   position: fixed;
+    //   top: 20px;
+    //   left: 1rem;
+    //   width: 45%;
+    //   height: auto;
+    //   z-index: 100;
+    // }
+
+    // .logo {
+    //   width: 100%;
+    //   display: block;
+    //   vertical-align: middle;
+    //   transform-origin: top left;
+    //   will-change: transform;
+    //    transition: transform var(--duration) ease-in-out;
+    // }
+
+    .title {
+      font-weight: 400;
+      font-size: 33.5vw;
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+      letter-spacing: -0.04em;
+      font-kerning: none !important;
+      text-rendering: optimizeSpeed;
+      transform: translateZ(0);
+    }
+  }
+
+  .ch {
+    max-width: 25ch;
+  }
+
+  .dummy {
+    min-height: 60vh;
+    // border-bottom: 1px solid var(--border-color);
+    padding: 3em 1rem;
+
+    & h1 {
+      font-size: 2vw;
+      font-weight: 430;
+      font-kerning: none !important;
+      text-rendering: optimizeSpeed;
+      transform: translateZ(0);
+    }
+  }
+</style>
+
+<script>
+  import { animate, stagger, inView, scroll, timeline } from 'motion';
+  import SplitType from 'split-type';
+
+  let myTitle = new SplitType('#title', { types: 'words, chars' });
+  let boxTitles = new SplitType('#Dtitle');
+  const animateText = document.querySelectorAll('#title .char');
+  const sections = document.querySelectorAll('.dummy');
+  // const pos = document.querySelector('.logo');
+
+  timeline([
+    [
+      animateText,
+      { x: ['0%', '0%'], opacity: [0, 1] },
+      {
+        duration: 1,
+        delay: stagger(0.1, { from: 'first' }),
+        easing: [0.65, 0, 0.35, 1],
+      },
+    ],
+    [
+      '.line-border',
+      { scaleX: [0, 1] },
+      { at: '<', duration: 1.35, easing: [0.65, 0, 0.35, 1] },
+    ],
+  ]);
+
+  inView(sections, ({ target }) => {
+    animate(
+      target.querySelectorAll('#Dtitle .line'),
+      { y: ['110%', 0], opacity: [0, 1] },
+      {
+        duration: 1.1,
+        delay: stagger(0.08),
+        easing: [0.165, 0.84, 0.44, 1],
+      }
+    );
+  });
+
+  // scroll(({ y }) => {
+  //   const progress = y.current;
+
+  //   pos.style.cssText = `
+  //     transform: ${1 - progress / 20.75}};
+  //     transition: transform ${`${0.7}s cubic-bezier(0.56, 0.06, 0, 1)`};
+  //   `;
+
+  //   if (progress >= 108) {
+  //     pos.style.cssText = `
+  //     transform: scale(0.115);
+  //     transition: transform ${`${0.7}s cubic-bezier(0.56, 0.06, 0, 1)`};
+  //   `;
+  //   }
+  // });
+
+  // function up() {
+  //   const pos = document.querySelector('.logo');
+  //   window.addEventListener(
+  //     'scroll',
+  //     (e) => {
+  //       const progress = window.scrollY;
+  //       console.log(`hi i am the second ${progress}`);
+  //       pos.style.transform = `scale(${1 - progress / 20.75})`;
+
+  //       if (progress >= 60) {
+  //         pos.style.transform = `scale(0.115)`;
+  //       }
+  //     },
+  //     { passive: true }
+  //   );
+  // }
+
+  // up();
+
+  // 0.165, 0.84, 0.44, 1
+  // 0.215, 0.61, 0.355, 1
+</script>

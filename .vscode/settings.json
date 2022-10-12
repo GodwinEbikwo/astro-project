@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true,
+  "typescript.tsserver.watchOptions": {},
+  "dataworkspace.excludedProjects": [],
+  "prettier.bracketSameLine": false,
+  "prettier.documentSelectors": ["[\"**/*.astro\"]"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

@@ -1,0 +1,178 @@
+<aside class='root'>
+  <div class='logo_container'>
+    <span>
+      Studio
+      <span class='logo'>Mucin</span>
+    </span>
+  </div>
+
+  <nav class='navigation'>
+    <ul class='navigation_list'>
+      <li>Home</li>
+      <li>Team</li>
+      <li>Offices</li>
+      <li>Projects</li>
+      <li>Departments</li>
+    </ul>
+  </nav>
+
+  <div class='short_link'>
+    <div class='short_link_top'>
+      <div>
+        <span>Dept</span>
+      </div>
+
+      <div>
+        <span>Branding</span>
+        <span>Ecommerce</span>
+        <span>Photography</span>
+      </div>
+    </div>
+
+    <div class='short_link_top'>
+      <div>
+        <span>Email</span>
+      </div>
+
+      <div>
+        <span>Sign Up</span>
+      </div>
+    </div>
+
+    <div class='short_link_top'>
+      <div>
+        <span>Web</span>
+      </div>
+
+      <div>
+        <span>Instagram</span>
+        <span>Twitter</span>
+      </div>
+    </div>
+
+    <div class='short_link_bottom'>
+      <span> ©️ 2011 - 2022</span>
+
+      <!-- <div class='slb_absolute'>
+        <p>{`${scrollPercentage}/100%`}</p>
+
+        <div class='flex'>
+          <p>
+            {`${x}(X)`} , {`${y}(Y)`}
+          </p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</aside>
+
+<style lang='scss'>
+  .root {
+    position: fixed;
+    width: 28vw;
+    top: var(--py);
+    bottom: var(--py);
+    right: var(--py);
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    border: 1px solid var(--border-color);
+    background-color: var(--fg);
+    border-bottom: 1px solid var(--border-color);
+    min-height: 34.375rem;
+
+    @media (min-width: 1025px) {
+      width: 16vw;
+      right: var(--py);
+    }
+  }
+
+  .logo_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    height: 10.0625rem;
+    min-height: 13.0625rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1.5rem;
+
+    .logo {
+      display: inline-block;
+      background-color: green;
+      margin-left: 0.1rem;
+      padding: 0.1rem;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    flex-grow: 1;
+
+    .navigation_list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+
+      & > li {
+        padding: 0.4em 0;
+      }
+    }
+  }
+
+  .short_link {
+    position: relative;
+    min-height: 5rem;
+  }
+
+  .short_link_top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+
+    & > :first-child {
+      width: 30%;
+      border-right: 1px solid var(--border-color);
+      padding: 0.75rem;
+    }
+
+    & > :last-child {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      padding: 0.75rem;
+
+      & > span {
+        display: block;
+        padding: 0.2rem 0;
+      }
+    }
+  }
+
+  .short_link_bottom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+
+    & > h2 {
+      font-size: 1.25rem;
+    }
+
+    .slb_absolute {
+      padding: 0 var(--px);
+      width: 100%;
+      position: absolute;
+      bottom: 0.25rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1em;
+    }
+  }
+</style>
