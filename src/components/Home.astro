@@ -66,11 +66,6 @@
     min-height: calc(100vh - var(--py) * 1.12);
 
     .ss {
-      position: absolute;
-      top: 30px;
-      overflow: hidden;
-      width: 100%;
-
       background: linear-gradient(180deg, var(--bg) 0, transparent 100%),
         linear-gradient(
           90deg,
@@ -84,14 +79,14 @@
           hsla(0, 0%, 100%, 0.1) 90%,
           hsla(0, 0%, 100%, 0)
         );
-      background-size: 100% 100%, 100% 100%, 1440px 1px;
+      background-size: 100% 100%, 100% 100%, 1440px 0px;
       background-position: bottom;
       background-repeat: no-repeat;
     }
 
     .title {
       font-weight: 400;
-      font-family: system-ui, var(--font);
+      font-family: system-ui;
       font-size: 34vw;
       user-select: none;
       pointer-events: none;
