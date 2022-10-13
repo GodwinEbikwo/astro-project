@@ -1,4 +1,5 @@
 ---
+import '../styles/app.scss';
 import Layout from '../layouts/Layout.astro';
 import Home from '../components/Home.astro';
 import Accolades from '../components/Accolades.astro';
@@ -13,9 +14,11 @@ import Accolades from '../components/Accolades.astro';
 
 <style lang='scss'>
   .main {
-    width: 100%;
-    position: relative;
-    min-height: 100vh;
+    display: flex;
     flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    flex-direction: column;
+    min-height: 100vh;
   }
 </style>
