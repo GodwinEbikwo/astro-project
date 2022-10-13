@@ -5,7 +5,9 @@
   font-style: normal;
   src: url('/fonts/Inter.var.woff2') format('woff2');
 }
+
 :root {
+--font: "Inter var", sans-serif;
 --px: 1.5rem;
 --py: 1.5rem;
 --accent: 124, 58, 237;
@@ -15,10 +17,6 @@
 --border-color: rgba(255, 255, 255, 0.3);
 --ls: -0.09em;
 --duration: 0.5s;
-
-
---font: "Inter var", sans-serif;
-
 --size-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
 --size-400: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
 --size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
