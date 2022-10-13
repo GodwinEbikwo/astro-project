@@ -135,22 +135,32 @@
   const sections = document.querySelectorAll('.dummy');
   // const pos = document.querySelector('.logo');
 
-  timeline([
-    [
-      animateText,
-      { x: ['0%', '0%'], opacity: [0, 1] },
-      {
-        duration: 1,
-        delay: stagger(0.1, { from: 'first' }),
-        easing: [0.65, 0, 0.35, 1],
-      },
-    ],
-    [
-      '.line-border',
-      { scaleX: [0, 1] },
-      { at: '<', duration: 1.35, easing: [0.65, 0, 0.35, 1] },
-    ],
-  ]);
+  animate(
+    animateText,
+    { x: ['0%', '0%'], opacity: [0, 1] },
+    {
+      duration: 1,
+      delay: stagger(0.1, { from: 'first' }),
+      easing: [0.65, 0, 0.35, 1],
+    }
+  );
+
+  // timeline([
+  //   [
+  //     animateText,
+  //     { x: ['0%', '0%'], opacity: [0, 1] },
+  //     {
+  //       duration: 1,
+  //       delay: stagger(0.1, { from: 'first' }),
+  //       easing: [0.65, 0, 0.35, 1],
+  //     },
+  //   ],
+  //   [
+  //     '.line-border',
+  //     { scaleX: [0, 1] },
+  //     { at: '<', duration: 1.35, easing: [0.65, 0, 0.35, 1] },
+  //   ],
+  // ]);
 
   inView(sections, ({ target }) => {
     animate(
@@ -179,26 +189,4 @@
   //   `;
   //   }
   // });
-
-  // function up() {
-  //   const pos = document.querySelector('.logo');
-  //   window.addEventListener(
-  //     'scroll',
-  //     (e) => {
-  //       const progress = window.scrollY;
-  //       console.log(`hi i am the second ${progress}`);
-  //       pos.style.transform = `scale(${1 - progress / 20.75})`;
-
-  //       if (progress >= 60) {
-  //         pos.style.transform = `scale(0.115)`;
-  //       }
-  //     },
-  //     { passive: true }
-  //   );
-  // }
-
-  // up();
-
-  // 0.165, 0.84, 0.44, 1
-  // 0.215, 0.61, 0.355, 1
 </script>
