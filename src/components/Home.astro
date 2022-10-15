@@ -98,13 +98,14 @@
     }
 
     .box {
-      max-width: 25ch;
-      width: 25ch;
+      max-width: 30ch;
+      width: 30ch;
 
       .dummy_title {
         font-weight: 430;
         letter-spacing: -0.025em;
         margin-bottom: 2em;
+        font-size: 22px;
 
         .parent_line {
           display: block;
@@ -124,7 +125,7 @@
 
   //split words
   const myTitle = new SplitType('#title', { types: 'words, chars' });
-  const boxTitles = new SplitType('#Dtitle', { types: 'lines' });
+  const about = new SplitType('#Dtitle', { absolute: true });
   const sections = document.querySelectorAll('.dummy');
 
   // const pos = document.querySelector('.logo');
@@ -150,15 +151,16 @@
     sections,
     () => {
       animate(
-        boxTitles.lines,
+        about.lines,
         {
           y: ['110%', '0%'],
           opacity: [0, 1],
           willChange: 'transform',
         },
         {
-          duration: 1.1,
+          duration: 0.9,
           delay: stagger(0.065),
+          easing: [0.65, 0, 0.35, 1],
         }
       );
     },
