@@ -18,27 +18,27 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
-
     <script>
       import Lenis from '@studio-freight/lenis';
-      let lenis;
 
-      // Initialize Lenis smooth scrolling
-      const initSmoothScrolling = () => {
-        lenis = new Lenis({
-          lerp: 0.1, //https://easings.net/en#easeOutExpo
-          smooth: true,
-        });
+      const lenis = new Lenis({
+        easing: (t) => Math.min(1, 1.00098 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/qsbe9zydsz
+        direction: 'vertical', // vertical, horizontal
+        gestureDirection: 'vertical', // vertical, horizontal, both
+        smooth: true,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+      });
 
-        const scrollFn = (time) => {
-          lenis.raf(time);
-          requestAnimationFrame(scrollFn);
-        };
+      //get scroll value
 
-        requestAnimationFrame(scrollFn);
-      };
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
 
-      initSmoothScrolling();
+      requestAnimationFrame(raf);
     </script>
   </body>
 </html>

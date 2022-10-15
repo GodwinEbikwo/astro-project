@@ -1,0 +1,98 @@
+---
+const featuresData = [
+  { title: 'Awwards', body: 'Site of the day.' },
+  {
+    title: 'Awwards',
+    body: 'Mobile Site of the Week.',
+  },
+  {
+    title: 'Awwards',
+    body: 'Site of the Week.',
+  },
+  {
+    title: 'Awwards',
+    body: 'Site of the Week.',
+    number: 4,
+  },
+];
+---
+
+<div class='container'>
+  <div class='top'>
+    <div class='line'></div>
+    <h1 class='intro_title'>
+      <span>Neutral</span>
+      <span>XYZ</span>
+      <span>Studio &</span>
+      <span>Residences</span>
+    </h1>
+  </div>
+</div>
+
+<style lang='scss'>
+  .container {
+    position: relative;
+
+    .top {
+      position: relative;
+      width: 100%;
+
+      @media only screen and (min-width: 415px) {
+        padding: 50vh var(--px) 0 var(--px);
+        margin-bottom: 47rem;
+      }
+
+      .line {
+        position: absolute;
+        left: var(--px);
+        bottom: 0px;
+        width: calc(100% - var(--px) * 2);
+        height: 1px;
+        background: #120902;
+      }
+
+      .intro_title {
+        width: 100%;
+        position: relative;
+        display: inline-flex;
+        font-size: 3rem;
+        font-weight: 600;
+        letter-spacing: -0.05em;
+        margin-bottom: 1rem;
+
+        & > span {
+          display: inline-block;
+          position: relative;
+          margin-right: 14.2rem;
+
+          &:first-child {
+            left: var(--px);
+          }
+
+          &:last-child {
+            left: var(--px);
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  import { animate, stagger, inView } from 'motion';
+
+  const listSections = document.querySelectorAll('.list');
+
+  inView(listSections, ({ target }) => {
+    animate(
+      target.querySelectorAll('.list-item'),
+      { y: ['120%', 0], opacity: [0, 1] },
+      {
+        duration: 1.5,
+        delay: stagger(1),
+        easing: [0.16, 1, 0.3, 1],
+      }
+    );
+  });
+</script>

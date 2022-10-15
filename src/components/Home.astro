@@ -3,7 +3,7 @@
     <!-- <div class='progress-bar'></div> -->
     <div class='f_dummy'>
       <div class='flex ai jc'>
-        <div class='relative overflow-hidden w-full ss'>
+        <div class='relative ss'>
           <h1 id='title' class='title'>Rëpliba</h1>
           <div class='line-border'></div>
         </div>
@@ -13,12 +13,14 @@
 </div>
 
 <div class='dummy'>
-  <div class='relative overflow-hidden'>
-    <h1 id='Dtitle' class='ch'>
-      Work-life balance really means something in Sweden. You’ll never be short
-      of time – or opportunity – to enjoy your new home away from home with
-      culture around the corner and freedom to roam a wilderness unlike anywhere
-      else on earth.
+  <div class='relative box'>
+    <h1 class='dummy_title'>
+      <div id='Dtitle' class='parent_line'>
+        Work-life balance really means something in Sweden. You’ll never be
+        short of time – or opportunity – to enjoy your new home away from home
+        with culture around the corner and freedom to roam a wilderness unlike
+        anywhere else.
+      </div>
     </h1>
   </div>
 </div>
@@ -29,7 +31,6 @@
     display: flex;
     align-items: center;
     position: relative;
-    padding: var(--py);
   }
 
   .progress-bar {
@@ -38,7 +39,6 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: orangered;
     transform: scaleX(0);
     transform-origin: 0%;
     z-index: 100;
@@ -62,131 +62,108 @@
   .f_dummy {
     position: relative;
     border-bottom: 1px solid var(--border-color);
-    height: calc(100vh - var(--py) * 1.12);
-    min-height: calc(100vh - var(--py) * 1.12);
-
-    .ss {
-      // margin-left: -0.05em;
-      // background: linear-gradient(180deg, var(--bg) 0, transparent 100%),
-      //   linear-gradient(
-      //     90deg,
-      //     rgb(var(--gradient-from, 85 85 85) / 0.2) 0,
-      //     rgb(var(--gradient-to, 85 85 85) / 0.2) 100%
-      //   ),
-      //   linear-gradient(
-      //     to right,
-      //     hsla(0, 0%, 100%, 0),
-      //     hsla(0, 0%, 100%, 0.1) 10%,
-      //     hsla(0, 0%, 100%, 0.1) 90%,
-      //     hsla(0, 0%, 100%, 0)
-      //   );
-      // background-size: 100vh, 100% 100%, 1440px 0px;
-      // background-position: bottom;
-      // background-repeat: no-repeat;
-    }
+    height: 100vh;
+    min-height: 100vh;
 
     .title {
+      font-size: 33vw;
       font-weight: 400;
       font-family: system-ui;
-      font-size: 34vw;
       user-select: none;
       pointer-events: none;
       white-space: nowrap;
       transform: translateZ(0);
       letter-spacing: -0.0485em;
       font-kerning: none;
+      margin-left: -0.05em;
 
-      // background-image: linear-gradient(
-      //   to right bottom,
-      //   rgb(255, 255, 255) 30%,
-      //   rgba(255, 255, 255, 0.38)
-      // );
-      // -webkit-background-clip: text;
-      // -webkit-text-fill-color: transparent;
+      @media (min-width: 768px) {
+        font-size: 33vw;
+      }
+
+      @media (min-width: 1025px) {
+        font-size: 34vw;
+      }
     }
   }
 
-  .ch {
-    max-width: 25ch;
-  }
-
   .dummy {
-    min-height: 60vh;
-    // border-bottom: 1px solid var(--border-color);
-    padding: 3em 1rem;
+    display: flex;
+    height: 100%;
+    min-height: 70vh;
+    padding: 3em var(--px);
 
-    & h1 {
-      font-size: 30px;
-      font-weight: 430;
-      transform: translateZ(0);
-      letter-spacing: -0.04em;
+    #Dtitle {
       font-kerning: none;
+    }
+
+    .box {
+      max-width: 25ch;
+      width: 25ch;
+
+      .dummy_title {
+        font-weight: 430;
+        letter-spacing: -0.025em;
+        margin-bottom: 2em;
+
+        .parent_line {
+          display: block;
+          text-align: start;
+          position: relative;
+          overflow: hidden;
+          font-kerning: none;
+        }
+      }
     }
   }
 </style>
 
 <script>
-  import { animate, stagger, inView, scroll, timeline } from 'motion';
+  import { animate, stagger, inView, timeline } from 'motion';
   import SplitType from 'split-type';
 
-  let myTitle = new SplitType('#title', { types: 'words, chars' });
-  let boxTitles = new SplitType('#Dtitle');
-  const animateText = document.querySelectorAll('#title .char');
+  //split words
+  const myTitle = new SplitType('#title', { types: 'words, chars' });
+  const boxTitles = new SplitType('#Dtitle', { types: 'lines' });
   const sections = document.querySelectorAll('.dummy');
+
   // const pos = document.querySelector('.logo');
 
-  animate(
-    animateText,
-    { x: ['0%', '0%'], opacity: [0, 1] },
+  timeline([
+    [
+      myTitle.chars,
+      { x: ['0%', '0%'], opacity: [0, 1], willChange: 'transform' },
+      {
+        duration: 1,
+        delay: stagger(0.1, { from: 'first' }),
+        easing: [0.65, 0, 0.35, 1],
+      },
+    ],
+    [
+      '.line-border',
+      { scaleX: [0, 1] },
+      { at: '<', duration: 1.35, easing: [0.65, 0, 0.35, 1] },
+    ],
+  ]);
+
+  inView(
+    sections,
+    () => {
+      animate(
+        boxTitles.lines,
+        {
+          y: ['110%', '0%'],
+          opacity: [0, 1],
+          willChange: 'transform',
+        },
+        {
+          duration: 1.1,
+          delay: stagger(0.065),
+        }
+      );
+    },
     {
-      duration: 1,
-      delay: stagger(0.1, { from: 'first' }),
-      easing: [0.65, 0, 0.35, 1],
+      amount: 0.1,
     }
   );
-
-  // timeline([
-  //   [
-  //     animateText,
-  //     { x: ['0%', '0%'], opacity: [0, 1] },
-  //     {
-  //       duration: 1,
-  //       delay: stagger(0.1, { from: 'first' }),
-  //       easing: [0.65, 0, 0.35, 1],
-  //     },
-  //   ],
-  //   [
-  //     '.line-border',
-  //     { scaleX: [0, 1] },
-  //     { at: '<', duration: 1.35, easing: [0.65, 0, 0.35, 1] },
-  //   ],
-  // ]);
-
-  inView(sections, ({ target }) => {
-    animate(
-      target.querySelectorAll('#Dtitle .line'),
-      { y: ['110%', 0], opacity: [0, 1] },
-      {
-        duration: 1.1,
-        delay: stagger(0.08),
-        easing: [0.165, 0.84, 0.44, 1],
-      }
-    );
-  });
-
-  // scroll(({ y }) => {
-  //   const progress = y.current;
-
-  //   pos.style.cssText = `
-  //     transform: ${1 - progress / 20.75}};
-  //     transition: transform ${`${0.7}s cubic-bezier(0.56, 0.06, 0, 1)`};
-  //   `;
-
-  //   if (progress >= 108) {
-  //     pos.style.cssText = `
-  //     transform: scale(0.115);
-  //     transition: transform ${`${0.7}s cubic-bezier(0.56, 0.06, 0, 1)`};
-  //   `;
-  //   }
-  // });
 </script>

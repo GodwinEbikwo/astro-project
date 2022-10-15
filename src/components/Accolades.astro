@@ -95,8 +95,9 @@ const featuresData = [
       margin-top: auto;
 
       p {
-        font-size: var(--size-500);
-        letter-spacing: 0.02em;
+        font-size: 18px;
+        letter-spacing: -0.023775610494210232em;
+        line-height: 24px;
         font-weight: 500;
       }
     }
@@ -120,7 +121,7 @@ const featuresData = [
 
         & > span {
           display: inline-block;
-          font-size: 1.2rem;
+          font-size: 22px;
         }
       }
     }
@@ -139,6 +140,7 @@ const featuresData = [
       {
         duration: 1.5,
         delay: stagger(1),
+        easing: [0.16, 1, 0.3, 1],
       }
     );
   });

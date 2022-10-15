@@ -7,7 +7,7 @@
 }
 
 :root {
---font: "Inter var", sans-serif;
+--font: "Inter var", system-ui, sans-serif;
 --px: 1.5rem;
 --py: 1.5rem;
 --accent: 124, 58, 237;
@@ -129,7 +129,7 @@ html {
   font-family: var(--font);
   scroll-behavior: initial;
   @supports (font-variation-settings: normal) {
-html {  font-family: var(--font); }
+      html {  font-family: var(--font); }
     }
 }
 
@@ -142,23 +142,22 @@ body {
 body {
   color: var(--text-color);
   background-color: var(--bg);
-  font-size: var(--size-400);
+  font-size: calc(15px/22px);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-variant-ligatures: contextual common-ligatures;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
 }
 
-p {
-  font-feature-settings: "salt";
-}
+
 
 .w-full {
   width: 100%;
 }
 
-.kern-none {
-  font-kerning: none !important;
-  text-rendering: optimizeSpeed;
-  transform: translateZ(0);
+.line {
+ overflow: hidden;
+ font-kerning: none;
 }
 
 .block {
