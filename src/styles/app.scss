@@ -7,7 +7,7 @@
 }
 
 :root {
---font: "Inter var", system-ui, sans-serif;
+--font: "Inter var", times, system-ui, sans-serif;
 --px: 1.5rem;
 --py: 1.5rem;
 --accent: 124, 58, 237;
@@ -139,9 +139,26 @@ body {
   min-height: 100%;
 }
 
+a {
+  text-decoration: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+a:focus,
+button:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #eee;
+  outline-offset: 3px;
+}
+
 body {
-  color: var(--text-color);
-  background-color: var(--bg);
+  color:#120902;
+  background-color: #f7f4ef;
   font-size: calc(15px/22px);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -149,7 +166,22 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
 }
 
+.is-transitioning {
+  pointer-events: none;
+  cursor: progress;
+}
 
+
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 200vh;
+  pointer-events: none;
+  background-color: #FFF6ED;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+}
 
 .w-full {
   width: 100%;

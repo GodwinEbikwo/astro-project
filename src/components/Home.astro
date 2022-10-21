@@ -123,8 +123,12 @@
   import { animate, stagger, inView, timeline } from 'motion';
   import SplitType from 'split-type';
 
+  // 2302107
+
   //split words
-  const myTitle = new SplitType('#title', { types: 'words, chars' });
+  const myTitle = new SplitType('#title', {
+    types: 'words, chars',
+  });
   const about = new SplitType('#Dtitle', { absolute: true });
   const sections = document.querySelectorAll('.dummy');
 
@@ -133,7 +137,7 @@
   timeline([
     [
       myTitle.chars,
-      { x: ['0%', '0%'], opacity: [0, 1], willChange: 'transform' },
+      { x: ['0%', '0%'], opacity: [0, 1] },
       {
         duration: 1,
         delay: stagger(0.1, { from: 'first' }),

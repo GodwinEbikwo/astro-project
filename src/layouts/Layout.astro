@@ -1,4 +1,6 @@
 ---
+import Header from '../components/Header.astro';
+import '../styles/app.scss';
 export interface Props {
   title: string;
 }
@@ -14,15 +16,46 @@ const { title } = Astro.props;
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
+    <link
+      rel='preload'
+      href='/public/fonts/Inter.var.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin
+    />
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <div class='_root'>
+      <main class='_main'>
+        <slot />
+      </main>
+    </div>
+
+    <style is:global>
+      ._root {
+        position: relative;
+        margin: 0 auto;
+        max-width: 2460px;
+      }
+
+      ._main {
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+    </style>
+
     <script>
       import Lenis from '@studio-freight/lenis';
+      import { animate, scroll } from 'motion';
 
       const lenis = new Lenis({
-        easing: (t) => Math.min(1, 1.00098 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/qsbe9zydsz
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
         direction: 'vertical', // vertical, horizontal
         gestureDirection: 'vertical', // vertical, horizontal, both
         smooth: true,
@@ -32,10 +65,14 @@ const { title } = Astro.props;
       });
 
       //get scroll value
-
       function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
+      }
+
+      function headerAni() {
+        const container = document.querySelector('.inner');
+        scroll(animate(container, { y: ['0%', '100%'] }, { duration: 0.1 }));
       }
 
       requestAnimationFrame(raf);

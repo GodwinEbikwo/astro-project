@@ -11,8 +11,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@barba/core": "^2.9.7",
     "@studio-freight/lenis": "^0.2.9",
     "astro": "^1.4.5",
+    "gsap": "^3.11.3",
     "motion": "^10.14.2",
     "split-type": "^0.3.2"
   },

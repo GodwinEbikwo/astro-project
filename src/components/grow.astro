@@ -1,0 +1,55 @@
+<div class='container'>
+  <div class='intro relative flex ai jc'>
+    <h1 class='title'>
+      <div class='p-line'>Brand Inspiration</div>
+    </h1>
+  </div>
+</div>
+
+<style lang='scss'>
+  .container {
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    padding: var(--px);
+
+    .intro {
+      .title {
+        font-size: 10rem;
+        letter-spacing: -0.06em;
+        font-weight: 450;
+        line-height: 1;
+
+        .p-line {
+          display: block;
+          text-align: start;
+          position: relative;
+          overflow: hidden;
+          font-kerning: none;
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  import { animate, stagger } from 'motion';
+  import SplitType from 'split-type';
+
+  const intro = new SplitType('.p-line', {
+    types: 'lines, words',
+  });
+
+  animate(
+    intro.lines,
+    {
+      y: ['110%', '0%'],
+      opacity: [0, 1],
+      willChange: 'transform',
+    },
+    {
+      duration: 0.9,
+      delay: stagger(0.09),
+    }
+  );
+</script>

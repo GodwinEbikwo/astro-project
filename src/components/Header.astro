@@ -1,55 +1,112 @@
-<div class='float'>
-  <svg
-    style={{
-      transition: 'transform 720ms linear',
-    }}
-    class='logo w-full origin-top-left'
-    viewBox='0 0 712.422 360.72'
-  >
-    <path
-      data-name='Path 6'
-      d='M77.655 350.7V0H0v350.7Zm8.517-95.19c20.043 70.641 76.653 105.21 140.781 105.21 96.693 0 146.292-63.627 146.292-160.32V0H295.59v200.4c0 53.607-24.048 82.665-67.635 82.665-35.07 0-58.116-21.543-70.641-61.623Zm499.5-21.042c84.168 0 126.753-56.613 126.753-117.735S669.336 0 585.168 0H396.792v350.7h77.655V234.468Zm-111.225-77.655V77.655h112.224c30.06 0 48.1 18.036 48.1 40.08s-18.036 39.078-48.1 39.078Z'
-      fill='#db4623'></path>
-  </svg>
-</div>
+<header class='container'>
+  <div class='inner'>
+    <nav class='nav_left'>
+      <div class='navMenu'>
+        <a href='/about' aria-label='About'> About</a>
+        <a href='/' aria-label='Services'> Services</a>
+        <a href='/' aria-label='Contact'> Contact</a>
+      </div>
+    </nav>
+
+    <div class='logo_container'>
+      <a href='/' class='logo' aria-label='Logo'>
+        <span>handshake</span>
+      </a>
+    </div>
+
+    <nav class='userNav_Box'>
+      <div class='userNav_Box_Inner'>
+        <a href='/' aria-label='Instagram'>
+          <span>Instagram</span>
+        </a>
+
+        <a href='/' aria-label='LinkedIn'>
+          <span>LinkedIn</span>
+        </a>
+
+        <a href='/' aria-label='Twitter'>
+          <span>Twitter</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
 
 <style lang='scss'>
-  .float {
+  .container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 45%;
-    margin-left: 1rem;
-    margin-top: 2rem;
-    height: auto;
-    pointer-events: none;
+    top: 0px;
+    left: 0px;
+    right: 0px;
     z-index: 100;
+    overflow: hidden;
+    height: 43px;
+  }
 
-    .origin-top-left {
-      transform-origin: top left;
+  .inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--px);
+    text-transform: uppercase;
+    font-size: 13px;
+
+    .nav_left {
+      flex: 1 1 0%;
+    }
+
+    .navMenu {
+      display: none;
+
+      & > * + * {
+        position: relative;
+        margin-left: 1.5rem;
+      }
+
+      @media (min-width: 1024px) {
+        display: inline-flex;
+      }
+    }
+
+    .nav_link {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .logo_container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      cursor: pointer;
+      transition: transform 200ms ease-in-out;
+      font-weight: 600;
+    }
+
+    .userNav_Box {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 1 1 0%;
+
+      & > * + * {
+        margin-top: 0rem;
+      }
+    }
+
+    .userNav_Box_Inner {
+      display: none;
+
+      & > * + * {
+        position: relative;
+        margin-left: 1.5rem;
+      }
+
+      @media (min-width: 1024px) {
+        display: inline-flex;
+      }
     }
   }
 </style>
-
-<!-- <script>
-  import Lenis from '@studio-freight/lenis';
-  let Lenis;
-
-  function logoAnimation() {
-    const logo = document.querySelector('.logo');
-
-    if (lenis) {
-      lenis.on('scroll', ({ scroll, limit }) => {
-        const progress = (scroll / limit) * 100;
-
-        logo.style.transform = `scale(${1 - progress / 20.75})`;
-
-        if (progress * 3 >= 55) {
-          logo.style.transform = `scale(0.115) translateY(-40in)`;
-        }
-      });
-    }
-  }
-
-  logoAnimation();
-</script> -->
