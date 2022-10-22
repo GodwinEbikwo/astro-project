@@ -15,6 +15,12 @@ const { title } = Astro.props;
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&display=swap'
+      rel='stylesheet'
+    />
   </head>
   <body>
     <div class='_root'>
@@ -24,16 +30,16 @@ const { title } = Astro.props;
     </div>
 
     <style is:global>
-      @font-face {
+      /* @font-face {
         font-family: 'Inter var';
         font-weight: 100 900;
         font-display: swap;
         font-style: normal;
         src: url('/public/fonts/Inter.var.woff2') format('woff2');
-      }
+      } */
 
       :root {
-        --font: 'Inter var', times, system-ui, sans-serif;
+        /* --font: 'Inter var', times, system-ui, sans-serif; */
         --px: 1.5rem;
         --py: 1.5rem;
         --accent: 124, 58, 237;
@@ -152,11 +158,11 @@ const { title } = Astro.props;
       }
 
       html {
-        font-family: var(--font);
+        font-family: 'Inter Tight', sans-serif;
         scroll-behavior: initial;
         @supports (font-variation-settings: normal) {
           html {
-            font-family: var(--font);
+            font-family: 'Inter Tight', sans-serif;
           }
         }
       }
