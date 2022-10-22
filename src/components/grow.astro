@@ -15,7 +15,7 @@
 
     .intro {
       .title {
-        font-size: 10rem;
+        font-size: clamp(2rem, 10vw, 10rem);
         letter-spacing: -0.06em;
         font-weight: 450;
         line-height: 1;
@@ -33,22 +33,22 @@
 </style>
 
 <script>
-  import { animate, stagger } from 'motion';
+  import { scroll, animate, stagger } from 'motion';
   import SplitType from 'split-type';
 
   const intro = new SplitType('.p-line', {
-    types: 'lines, words',
+    types: 'words, chars',
   });
 
   animate(
-    intro.lines,
+    intro.chars,
     {
       y: ['110%', '0%'],
       opacity: [0, 1],
       willChange: 'transform',
     },
     {
-      duration: 0.9,
+      duration: 0.5,
       delay: stagger(0.09),
     }
   );
