@@ -44,10 +44,10 @@
       height: 100%;
       width: 100%;
       display: flex;
-      align-items: center;
       justify-content: flex-end;
       flex-direction: column;
       padding: 0 var(--px);
+      margin-top: 0vh;
 
       .title-content {
         margin-bottom: 64px;
@@ -61,6 +61,7 @@
         line-height: 27px;
         max-width: 492px;
         letter-spacing: -0.011em;
+        font-kerning: none;
 
         .p-line {
           display: block;
@@ -84,12 +85,12 @@
     intro.lines,
     {
       y: ['110%', '0%'],
+      rotateY: [8, 0],
       opacity: [0, 1],
-      willChange: 'transform',
     },
     {
       duration: 0.9,
-      delay: stagger(0.09),
+      delay: stagger(0.06),
     }
   );
 </script>
