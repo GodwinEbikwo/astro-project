@@ -1,0 +1,211 @@
+:root {
+    --font: 'Inter Tight', system-ui, sans-serif;
+    --px: 2.5rem;
+    --py: 2.5rem;
+    --accent: 124, 58, 237;
+    --bg: rgb(0, 2, 18);
+    --fg: hsl(56, 3.7%, 17.4%);
+    --text-color: rgba(255, 255, 255, 0.85);
+    --border-color: rgba(255, 255, 255, 0.3);
+    --ls: -0.09em;
+    --duration: 0.5s;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  div,
+  span,
+  object,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  caption,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+    content: none;
+  }
+
+  html {
+    font-family: var(--font);
+    scroll-behavior: initial;
+  }
+
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  a {
+    text-decoration: inherit;
+    color: inherit;
+    background-color: transparent;
+  }
+
+  a:focus,
+  button:focus {
+    outline: none;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #eee;
+    outline-offset: 3px;
+  }
+
+  body {
+    width: fit-content;
+    color: #120902;
+    background-color: #f7f4ef;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-variant-ligatures: contextual common-ligatures;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  .h-full{
+    height: 100%;
+  }
+
+  .line {
+    overflow: hidden;
+    font-kerning: none;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .inline-block {
+    display: inline-block;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
+  .relative {
+    position: relative;
+  }
+
+  .flex {
+    display: flex;
+
+    &.gap {
+      gap: 2em;
+    }
+
+    &.ai {
+      align-items: center;
+    }
+
+    &.jc {
+      justify-content: center;
+    }
+
+    &.flex-column {
+      flex-direction: column;
+    }
+
+    &.flex-row {
+      flex-direction: row;
+    }
+
+    &.space-between {
+      justify-content: space-between;
+    }
+  }
+
+  
+//   function headerAni() {
+//     const container = document.querySelector('.inner');
+//     scroll(animate(container, { y: ['0%', '100%'] }, { duration: 0.1 }));
+//   }

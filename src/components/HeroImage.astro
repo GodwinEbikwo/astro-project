@@ -1,0 +1,57 @@
+---
+import { Image } from '@astrojs/image/components';
+
+const imgUrl =
+  'https://res.cloudinary.com/godwinebikwo/image/upload/v1653763468/200792_9c0ca8719712459c9adb9b550d7965f2_mv2.jpeg_xnqjkm.webp';
+---
+
+<div class='container'>
+  <div class='imgcontain'>
+    <Image
+      src={imgUrl}
+      width={500}
+      height={888}
+      alt='descriptive text'
+      class='aimg'
+    />
+  </div>
+</div>
+
+<style>
+  .container {
+    height: 100%;
+    max-width: 500px;
+    width: 35vw;
+    background-color: rgba(53, 53, 53, 1);
+  }
+
+  .imgcontain {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .aimg {
+    transform-origin: 50% 50%;
+  }
+</style>
+
+<script>
+  import { animate } from 'motion';
+
+  const enter = document.querySelector('.aimg');
+
+  animate(
+    enter,
+    {
+      opacity: [0, 1],
+      scale: [1.1, 1],
+      willChange: 'transform',
+    },
+    {
+      duration: 1.2,
+      delay: 0.15,
+    }
+  );
+</script>

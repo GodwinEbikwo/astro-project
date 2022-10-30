@@ -1,4 +1,6 @@
 ---
+import Nav from '../components/Nav.astro';
+
 export interface Props {
   title: string;
 }
@@ -18,30 +20,24 @@ const { title } = Astro.props;
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
-      href='https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&display=swap'
+      href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
       rel='stylesheet'
     />
   </head>
   <body>
-    <div class='_root'>
-      <main class='_main'>
+    <Nav />
+
+    <main role='main' id='main' class='main' data-taxi>
+      <article data-taxi-view>
         <slot />
-      </main>
-    </div>
+      </article>
+    </main>
 
     <style is:global>
-      /* @font-face {
-        font-family: 'Inter var';
-        font-weight: 100 900;
-        font-display: swap;
-        font-style: normal;
-        src: url('/public/fonts/Inter.var.woff2') format('woff2');
-      } */
-
       :root {
-        /* --font: 'Inter var', times, system-ui, sans-serif; */
-        --px: 1.5rem;
-        --py: 1.5rem;
+        --font: 'Inter', system-ui, sans-serif;
+        --px: 2.5rem;
+        --py: 2.5rem;
         --accent: 124, 58, 237;
         --bg: rgb(0, 2, 18);
         --fg: hsl(56, 3.7%, 17.4%);
@@ -49,15 +45,6 @@ const { title } = Astro.props;
         --border-color: rgba(255, 255, 255, 0.3);
         --ls: -0.09em;
         --duration: 0.5s;
-        --size-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
-        --size-400: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
-        --size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
-        --size-600: clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem);
-        --size-700: clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem);
-        --size-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
-        --size-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
-        --size-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
-        --size-2000: clamp(16.01rem, 16.12rem + 16.1vw, 16.28rem);
       }
 
       *,
@@ -158,13 +145,8 @@ const { title } = Astro.props;
       }
 
       html {
-        font-family: 'Inter Tight', sans-serif;
+        font-family: var(--font);
         scroll-behavior: initial;
-        @supports (font-variation-settings: normal) {
-          html {
-            font-family: 'Inter Tight', sans-serif;
-          }
-        }
       }
 
       html,
@@ -191,33 +173,22 @@ const { title } = Astro.props;
       }
 
       body {
+        width: fit-content;
         color: #120902;
         background-color: #f7f4ef;
-        font-size: calc(15px / 22px);
+        font-size: 1rem;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
         font-variant-ligatures: contextual common-ligatures;
         font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
       }
 
-      .is-transitioning {
-        pointer-events: none;
-        cursor: progress;
-      }
-
-      .loader {
-        position: fixed;
-        width: 100vw;
-        height: 200vh;
-        pointer-events: none;
-        background-color: #fff6ed;
-        z-index: 1;
-        visibility: hidden;
-        opacity: 0;
-      }
-
       .w-full {
         width: 100%;
+      }
+
+      .h-full {
+        height: 100%;
       }
 
       .line {
@@ -269,31 +240,57 @@ const { title } = Astro.props;
         }
       }
 
-      ._root {
+      .link {
+        cursor: pointer;
         position: relative;
-        margin: 0 auto;
-        max-width: 2460px;
+        white-space: nowrap;
       }
 
-      ._main {
-        display: flex;
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: auto;
-        flex-direction: column;
-        min-height: 100vh;
+      .link::before,
+      .link::after {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        top: 100%;
+        left: 0;
+        pointer-events: none;
+      }
+
+      .link::before {
+        content: '';
+      }
+
+      .link--metis {
+        text-transform: inherit;
+      }
+
+      .link--metis::before {
+        transform-origin: 100% 50%;
+        transform: scale3d(0, 1, 1);
+        transition: transform 0.5s;
+      }
+
+      .link--metis:hover::before {
+        transform-origin: 0% 50%;
+        transform: scale3d(1, 1, 1);
+      }
+
+      ._wrapper {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+        display: inline-flex;
+        width: auto;
       }
     </style>
 
     <script>
       import Lenis from '@studio-freight/lenis';
-      import { animate, scroll } from 'motion';
 
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-        direction: 'vertical', // vertical, horizontal
-        gestureDirection: 'vertical', // vertical, horizontal, both
+        direction: 'horizontal',
         smooth: true,
         smoothTouch: false,
         touchMultiplier: 2,
@@ -306,12 +303,15 @@ const { title } = Astro.props;
         requestAnimationFrame(raf);
       }
 
-      function headerAni() {
-        const container = document.querySelector('.inner');
-        scroll(animate(container, { y: ['0%', '100%'] }, { duration: 0.1 }));
-      }
-
       requestAnimationFrame(raf);
+
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+      window.addEventListener('resize', () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      });
     </script>
   </body>
 </html>

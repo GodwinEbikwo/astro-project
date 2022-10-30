@@ -1,0 +1,101 @@
+---
+export interface Props {
+  subTitle?: string;
+  title: string;
+  bg?: string;
+  color?: string;
+}
+
+const { subTitle, title, bg, color } = Astro.props;
+---
+
+<section id='content' class='c-content' style={{ backgroundColor: `${bg}` }}>
+  <div class='c-intro relative'>
+    <ul class='flex h-full'>
+      <li>
+        <div>
+          <h3 class='c-subtitle' style={{ color: `${color}` }}>{subTitle}</h3>
+          <p class='c-title' style={{ color: `${color}` }}>
+            {title}
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class='bottom'>
+    <ul style={{ color: `${color}` }}>
+      <li class='list-item'>One</li>
+      <li class='list-item'>Two</li>
+      <li class='list-item'>Three</li>
+      <li class='list-item'>Four</li>
+    </ul>
+  </div>
+</section>
+
+<style lang='scss'>
+  .c-content {
+    position: relative;
+    flex: 0 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0;
+    max-width: 30vw;
+    flex-shrink: 0;
+    width: 30vw;
+    padding: var(--px);
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 48px;
+    }
+
+    .list-item {
+      font-size: 13.5px;
+      margin-bottom: 0.2rem;
+    }
+
+    .c-intro {
+      margin-top: 60px;
+      position: relative;
+      width: 100%;
+      opacity: 0;
+
+      .c-subtitle {
+        font-size: 13.5px;
+        margin-bottom: 0.5rem;
+      }
+
+      .c-title {
+        font-size: 18px;
+        letter-spacing: -0.014300685703423585em;
+        line-height: 25px;
+        max-width: 444px;
+
+        .p-lines {
+          display: block;
+          text-align: start;
+          position: relative;
+          overflow: hidden;
+          font-kerning: none;
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  import { inView, animate } from 'motion';
+  const section = document.querySelectorAll('.c-content');
+
+  inView(section, ({ target }) => {
+    animate(
+      target.querySelector('.c-intro'),
+      { opacity: 1 },
+      { delay: 0.2, duration: 1.2 }
+    );
+  });
+</script>

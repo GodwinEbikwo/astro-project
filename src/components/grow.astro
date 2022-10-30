@@ -1,23 +1,66 @@
 <div class='container'>
-  <div class='intro relative flex ai jc'>
-    <h1 class='title'>
-      <div class='p-line'>Brand Inspiration</div>
-    </h1>
+  <div class='intro'>
+    <div class='title-content'>
+      <h1 class='title'>
+        <div class='p-line'>
+          Studio Represent have to understand what aspect ratios are in order to
+          easily move designs, images and compress digital video files/content
+          from one medium to another without making any error in your
+          calculations.
+        </div>
+      </h1>
+
+      <svg
+        width='26'
+        height='22'
+        viewBox='0 0 26 22'
+        fill='#fff'
+        xmlns='http://www.w3.org/2000/svg'
+        ><path
+          fill-rule='evenodd'
+          clip-rule='evenodd'
+          d='M15.5147 0L25.0607 9.54594C25.6464 10.1317 25.6464 11.0815 25.0607 11.6673L15.5147 21.2132C15 20.6074 15.1463 20.5858 14.5605 20C13.9748 19.4142 14.0605 19.5 13.3934 19.0919L20.3787 12.1066H0V9.1066H20.3787L13.3934 2.12132C14 1.60754 13.9142 1.69321 14.5 1.10742C15.0858 0.521635 15 0.60658 15.5147 0Z'
+        ></path>
+      </svg>
+    </div>
   </div>
 </div>
 
 <style lang='scss'>
   .container {
-    width: 100%;
     position: relative;
-    height: 100vh;
-    padding: var(--px);
+    flex: 0 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0;
+    max-width: 35vw;
+    width: 35vw;
+    background-color: #201e1e;
 
     .intro {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-direction: column;
+      padding: 0 var(--px);
+
+      .title-content {
+        margin-bottom: 64px;
+      }
+
       .title {
-        font-size: clamp(2rem, 10vw, 10rem);
-        letter-spacing: -0.04em;
-        font-weight: 400;
+        font-size: 18px;
+        color: rgba($color: #fff, $alpha: 0.9);
+        margin-bottom: 24px;
+        letter-spacing: -0.016em;
+        line-height: 27px;
+        max-width: 492px;
+        letter-spacing: -0.011em;
 
         .p-line {
           display: block;
@@ -35,19 +78,17 @@
   import { animate, stagger } from 'motion';
   import SplitType from 'split-type';
 
-  const intro = new SplitType('.p-line', {
-    types: 'words, chars',
-  });
+  const intro = new SplitType('.p-line');
 
   animate(
-    intro.chars,
+    intro.lines,
     {
       y: ['110%', '0%'],
       opacity: [0, 1],
       willChange: 'transform',
     },
     {
-      duration: 0.5,
+      duration: 0.9,
       delay: stagger(0.09),
     }
   );
