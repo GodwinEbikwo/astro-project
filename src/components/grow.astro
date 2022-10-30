@@ -2,7 +2,7 @@
   <div class='intro'>
     <div class='title-content'>
       <h1 class='title'>
-        <div class='p-line'>
+        <div data-splitting class='p-line'>
           Studio Represent have to understand what aspect ratios are in order to
           easily move designs, images and compress digital video files/content
           from one medium to another without making any error in your
@@ -76,21 +76,21 @@
 </style>
 
 <script>
-  import { animate, stagger } from 'motion';
-  import SplitType from 'split-type';
+  // import { animate, stagger } from 'motion';
+  // import SplitType from 'split-type';
 
-  const intro = new SplitType('.p-line');
+  // const intro = new SplitType('.p-line');
 
-  animate(
-    intro.lines,
-    {
-      y: ['110%', '0%'],
-      rotateY: [8, 0],
-      opacity: [0, 1],
-    },
-    {
-      duration: 0.9,
-      delay: stagger(0.06),
-    }
-  );
+  // animate(
+  //   intro.lines,
+  //   {
+  //     y: ['110%', '0%'],
+  //     rotateY: [8, 0],
+  //     opacity: [0, 1],
+  //   },
+  //   {
+  //     duration: 0.9,
+  //     delay: stagger(0.06),
+  //   }
+  // );
 </script>

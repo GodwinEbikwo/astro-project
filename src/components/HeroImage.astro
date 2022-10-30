@@ -5,53 +5,50 @@ const imgUrl =
   'https://res.cloudinary.com/godwinebikwo/image/upload/v1653763468/200792_9c0ca8719712459c9adb9b550d7965f2_mv2.jpeg_xnqjkm.webp';
 ---
 
-<div class='container'>
-  <div class='imgcontain'>
+<div class='c-img_container'>
+  <div class='c-wrapper'>
     <Image
       src={imgUrl}
       width={500}
       height={888}
       alt='descriptive text'
-      class='aimg'
+      class='c-img'
     />
   </div>
 </div>
 
 <style>
-  .container {
+  .c-img_container {
     height: 100%;
-    max-width: 500px;
-    width: 35vw;
-    background-color: rgba(53, 53, 53, 1);
+    max-width: 480px;
+    width: 480px;
+    background-color: rgb(77, 78, 81);
+    overflow: hidden;
   }
 
-  .imgcontain {
+  .c-wrapper {
     overflow: hidden;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    mix-blend-mode: overlay;
   }
 
-  .aimg {
-    transform-origin: 50% 50%;
+  .c-img {
+    clip-path: inset(105% 0 0 0);
   }
 </style>
 
 <script>
   import { animate } from 'motion';
-
-  const enter = document.querySelector('.aimg');
-
+  const enter = document.querySelector('.c-img');
   animate(
     enter,
     {
       opacity: [0, 1],
+      clipPath: 'inset(0%)',
       scale: [1.1, 1],
-      willChange: 'transform',
     },
-    {
-      duration: 1.2,
-      delay: 0.15,
-    }
+    { duration: 1.2, delay: 0.1, easing: [0.5, 0.35, 0.15, 1] }
   );
 </script>

@@ -27,13 +27,13 @@ const { title } = Astro.props;
   <body>
     <Nav />
 
-    <main role='main' id='main' class='main' data-taxi>
-      <article data-taxi-view>
+    <main role='main' id='main' class='main'>
+      <article>
         <slot />
       </article>
     </main>
 
-    <style is:global>
+    <style lang='scss' is:global>
       :root {
         --font: 'Inter', system-ui, sans-serif;
         --px: 2.5rem;
