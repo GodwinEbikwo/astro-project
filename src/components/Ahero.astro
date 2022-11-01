@@ -2,6 +2,7 @@
   <article class='a-container flex ai jc'>
     <div class='a-logo'>
       <svg
+        class='a-represent'
         width='762'
         height='109'
         viewBox='0 0 762 109'
@@ -63,7 +64,6 @@
     width: 100%;
     height: 70vh;
     position: relative;
-    padding: 0 var(--px);
   }
 
   .a-logo {
@@ -73,7 +73,6 @@
 
     & > svg {
       width: 330px;
-      height: auto;
     }
   }
 
@@ -98,5 +97,5 @@
     opacity: [0, 1],
   });
 
-  timeline([['path', draw(1), { duration: 1.2, delay: stagger(0.2) }]]);
+  timeline([['path', draw(1), { duration: 1, delay: stagger(0.2) }]]);
 </script>
