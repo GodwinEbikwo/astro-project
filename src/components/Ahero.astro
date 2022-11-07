@@ -42,4 +42,92 @@
                 pathLength='1'
                 d='M732.014 108V19.3501H761.714V1.20006H682.364V19.3501H712.064V108H732.014Z'
               ></path>
-            </svg>  -->
+            </svg>  --><!-- <div class='site__bg'> --><!-- <div class='relative'> --><!-- <div class='w-full relative overflow-hidden z-10 site__reveal'> --><!-- <img src='/slogo.svg' alt='logo' class='site__logo' /> --><!-- <div class='logo__mask'></div>
+          <img src='/slogo.svg' alt='logo' class='site__logo' />
+          </div> --><!-- </div> --><!-- </div> --><!-- </div> --><!-- .site__bg {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--siteBg);
+          z-index: 10;
+
+          .z-10 {
+            z-index: 10;
+          }
+
+          .logo__mask {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0.9;
+            z-index: 10;
+            background-color: var(--siteBg);
+          }
+
+          .site__logo {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+
+          path {
+            fill: #f7f4ef;
+          }
+        } --><!-- lenis.on('scroll', ({ scroll }) => {
+            const progress = scroll;
+            const ani = document.querySelector(
+              '.a-represent'
+            ) as HTMLElement | null;
+  
+             ani.style.transform = `scale(${1 - progress / 420}, ${
+               1 - progress / 420
+             }) translateZ(0px)`;
+  
+            if (progress >= 500) {
+              ani.style.transform = `scale(1, 1)`;
+            }
+          }); --><!-- 
+           [
+             coverBg,
+             {
+               y: ['0%', '-110%'],
+               willChange: 'transform',
+             },
+             {
+               at: '-0.5',
+               duration: 1,
+               easing: [0.83, 0, 0.17, 1],
+             },
+           ],
+
+           [
+             siteReveal,
+             { scale: [0.8, 1], opacity: [0.5, 1], willChange: 'transform' },
+             { duration: 1.1, easing: [0.83, 0, 0.17, 1], delay: 1 },
+           ],
+           [
+             logpMask,
+             { y: ['0%', '-180%'], willChange: 'transform' },
+             { duration: 1.6, easing: [0.985, 0.01, 0.315, 0.83], delay: 0.15 },
+           ],
+           [
+             siteBg,
+             {
+               opacity: [1, 0],
+             },
+             { duration: 1 },
+           ],
+           [
+             ocontainer,
+             { opacity: [0, 1] },
+             {
+               duration: 1,
+             },
+           ], -->

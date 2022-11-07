@@ -17,43 +17,30 @@ const { title } = Astro.props;
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
-      href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
+      href='https://fonts.googleapis.com/css2?family=DM+Sans&display=swap'
       rel='stylesheet'
     />
   </head>
   <body>
-    <div class='seit__root'>
+    <div class='site__root'>
       <main class='site__container'>
         <div class='site__wrapper'>
           <slot />
         </div>
       </main>
 
-      <div class='cover__bg'></div>
+      <div class='site__bg'></div>
       <div class='logo__wrapper'>
         <div class='w-full relative overflow-hidden col'>
           <img src='/slogo.svg' alt='logo' class='site__logo' />
         </div>
       </div>
 
-      <!-- <div class='site__bg'> -->
-      <!-- <div class='relative'> -->
-      <!-- <div class='w-full relative overflow-hidden z-10 site__reveal'> -->
-      <!-- <img src='/slogo.svg' alt='logo' class='site__logo' /> -->
-      <!-- <div class='logo__mask'></div>
-          <img src='/slogo.svg' alt='logo' class='site__logo' />
-          </div> -->
-      <!-- </div> -->
-      <!-- </div> -->
-      <!-- </div> -->
-
       <style lang='scss' is:global>
         *,
         *::before,
         *::after {
           box-sizing: border-box;
-          padding: 0;
-          margin: 0;
         }
 
         :root {
@@ -62,7 +49,66 @@ const { title } = Astro.props;
           --bg: ##f1ede8;
           --fg: #120902;
           --siteBg: #0a0a00;
-          --font: 'Inter', system-ui, sans-serif;
+          --font: 'DM Sans', system-ui, sans-serif;
+        }
+
+        html,
+        body,
+        div,
+        span,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          font-size: 100%;
+          font: inherit;
+          vertical-align: baseline;
         }
 
         html {
@@ -79,6 +125,7 @@ const { title } = Astro.props;
           text-decoration: inherit;
           color: inherit;
           background-color: transparent;
+          cursor: pointer;
         }
 
         a:focus,
@@ -95,13 +142,32 @@ const { title } = Astro.props;
         body {
           width: 100%;
           color: var(--fg);
-          font-size: 16px;
+          font-size: 15px;
           background-color: var(--bg);
           font-family: var(--font);
           -webkit-font-smoothing: antialiased;
           text-rendering: optimizeLegibility;
           font-variant-ligatures: contextual common-ligatures;
           font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+        }
+
+        ul,
+        li {
+          margin: 0;
+          padding: 0;
+          display: block;
+          list-style: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-size: initial;
+          font-family: initial;
+          font-weight: inherit;
         }
 
         .site__root {
@@ -125,18 +191,17 @@ const { title } = Astro.props;
           min-height: calc(var(--vh, 1vh) * 100);
         }
 
-        .cover__bg {
-          position: fixed;
+        .site__bg {
+          position: absolute;
           top: 0;
-          right: 0;
-          bottom: 0;
           left: 0;
+          height: 100%;
+          width: 100%;
           background-color: var(--siteBg);
-          z-index: -1;
         }
 
         .logo__wrapper {
-          position: fixed;
+          position: absolute;
           top: 0;
           right: 0;
           bottom: 0;
@@ -144,51 +209,12 @@ const { title } = Astro.props;
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 100;
         }
 
         .site__logo {
           display: block;
           width: 100%;
           height: auto;
-        }
-
-        .site__bg {
-          position: fixed;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: var(--siteBg);
-          z-index: 10;
-
-          .z-10 {
-            z-index: 10;
-          }
-
-          .logo__mask {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            opacity: 0.9;
-            z-index: 10;
-            background-color: var(--siteBg);
-          }
-
-          .site__logo {
-            display: block;
-            width: 100%;
-            height: auto;
-          }
-
-          path {
-            fill: #f7f4ef;
-          }
         }
 
         .w-full {
@@ -288,7 +314,7 @@ const { title } = Astro.props;
 
       <script>
         import Lenis from '@studio-freight/lenis';
-        import { timeline } from 'motion';
+        import { timeline, stagger } from 'motion';
 
         const lenis = new Lenis({
           duration: 1,
@@ -315,108 +341,108 @@ const { title } = Astro.props;
           document.documentElement.style.setProperty('--vh', `${vh}px`);
         });
 
-        // lenis.on('scroll', ({ scroll }) => {
-        //   const progress = scroll;
-        //   const ani = document.querySelector(
-        //     '.a-represent'
-        //   ) as HTMLElement | null;
-
-        //   ani.style.transform = `scale(${1 - progress / 420}, ${
-        //     1 - progress / 420
-        //   }) translateZ(0px)`;
-
-        //   if (progress >= 500) {
-        //     ani.style.transform = `scale(1, 1)`;
-        //   }
-        // });
-
-        const siteBg = document.querySelector('.site__bg');
-        const ocontainer = document.querySelector('.o-container');
-
-        const siteReveal = document.querySelector('.site__reveal');
-        const logpMask = document.querySelector('.logo__mask');
-        const sitelOGO = document.querySelector('.site__logo');
-
-        let coverBg = document.querySelector('.cover__bg');
+        let coverBg = document.querySelector('.site__bg');
         let covermASK = document.querySelector('.col');
         let coverLogo = document.querySelector('.site__logo');
+        let ocontainer = document.querySelector('.h__container');
+        let socialLinks = document.querySelectorAll('.social__links');
+        let alert = document.querySelector('.h__ls');
+        let listItem = document.querySelectorAll('.list__item');
+        let firstItem = document.querySelector('.h__sd');
+        let hLogo = document.querySelector('.h__logo__item');
 
-        timeline([
+        timeline(
           [
-            coverLogo,
-            {
-              opacity: [0, 1],
-              y: ['110%', '0%'],
-              scale: [0.2, 1],
-            },
-            { duration: 1.2, easing: [0.83, 0, 0.17, 1] },
+            [
+              coverLogo,
+              {
+                y: ['110%', '0%'],
+              },
+              { duration: 1.2, easing: [0.85, 0, 0.15, 1] },
+            ],
+            [
+              covermASK,
+              {
+                y: ['0px', '280px'],
+                scale: [0.25, 0.98],
+                willChange: 'transform',
+              },
+              { duration: 1.1, easing: [0.85, 0, 0.15, 1] },
+            ],
+            [
+              coverBg,
+              {
+                transform: 'translateY(-100%) translate3d(0px, 0px, 0px)',
+              },
+              {
+                at: '-1.05',
+                duration: 1,
+                easing: [0.85, 0, 0.15, 1],
+              },
+            ],
+            [
+              ocontainer,
+              { opacity: [0, 1] },
+              {
+                at: '-0.9',
+                duration: 1,
+              },
+            ],
+            [
+              hLogo,
+              {
+                y: ['110%', '0%'],
+              },
+              {
+                at: '-0.65',
+                duration: 0.8,
+              },
+            ],
+            [
+              firstItem,
+              {
+                y: ['110%', '0%'],
+              },
+              {
+                at: '-0.5',
+                duration: 0.8,
+              },
+            ],
+            [
+              listItem,
+              {
+                y: ['110%', '0%'],
+              },
+              {
+                at: '-0.45',
+                duration: 0.8,
+                delay: stagger(0.05),
+              },
+            ],
+            [
+              alert,
+              {
+                y: ['110%', '0%'],
+              },
+              {
+                at: '-0.35',
+                duration: 0.8,
+              },
+            ],
+            [
+              socialLinks,
+              {
+                y: ['110%', '0%'],
+              },
+              {
+                at: '-0.3',
+                duration: 0.8,
+                delay: stagger(0.05),
+              },
+            ],
           ],
-          [
-            covermASK,
-            {
-              y: ['0px', '280px'],
-              scale: [0.25, 0.9],
-              willChange: 'transform',
-            },
-            { duration: 1.1, easing: [0.83, 0, 0.17, 1] },
-          ],
-          [
-            coverBg,
-            {
-              y: ['0%', '-110%'],
-              willChange: 'transform',
-            },
-            {
-              at: '-0.93',
-              duration: 1,
-              easing: [0.83, 0, 0.17, 1],
-            },
-          ],
-          [
-            ocontainer,
-            { opacity: [0, 1] },
-            {
-              duration: 1,
-            },
-          ],
-          // [
-          //   coverBg,
-          //   {
-          //     y: ['0%', '-110%'],
-          //     willChange: 'transform',
-          //   },
-          //   {
-          //     at: '-0.5',
-          //     duration: 1,
-          //     easing: [0.83, 0, 0.17, 1],
-          //   },
-          // ],
-
-          // [
-          //   siteReveal,
-          //   { scale: [0.8, 1], opacity: [0.5, 1], willChange: 'transform' },
-          //   { duration: 1.1, easing: [0.83, 0, 0.17, 1], delay: 1 },
-          // ],
-          // [
-          //   logpMask,
-          //   { y: ['0%', '-180%'], willChange: 'transform' },
-          //   { duration: 1.6, easing: [0.985, 0.01, 0.315, 0.83], delay: 0.15 },
-          // ],
-          // [
-          //   siteBg,
-          //   {
-          //     opacity: [1, 0],
-          //   },
-          //   { duration: 1 },
-          // ],
-          // [
-          //   ocontainer,
-          //   { opacity: [0, 1] },
-          //   {
-          //     duration: 1,
-          //   },
-          // ],
-        ]);
+          { delay: 0.2 }
+        );
       </script>
     </div>
   </body>

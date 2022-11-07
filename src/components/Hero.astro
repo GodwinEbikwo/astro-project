@@ -1,98 +1,113 @@
----
-const featuresData = [
-  { title: 'Awwards', body: 'Site of the day.' },
-  {
-    title: 'Awwards',
-    body: 'Mobile Site of the Week.',
-  },
-  {
-    title: 'Awwards',
-    body: 'Site of the Week.',
-  },
-  {
-    title: 'Awwards',
-    body: 'Site of the Week.',
-    number: 4,
-  },
-];
----
-
-<div class='container'>
-  <div class='top'>
-    <div class='line'></div>
-    <h1 class='intro_title'>
-      <span>Neutral</span>
-      <span>XYZ</span>
-      <span>Studio &</span>
-      <span>Residences</span>
+<section class='h__container'>
+  <div class='h__logo'>
+    <h1 class='h__cover'>
+      <span class='block h__logo__item'>Ambacka -</span> a creative studio
     </h1>
   </div>
-</div>
+
+  <div class='h__content'>
+    <div class='h__cover'>
+      <h2 class='h__sd' style='display: inline-flex;'>
+        Site in Development <svg
+          width='15'
+          height='15'
+          viewBox='0 0 15 15'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+          ><path
+            d='M8.4449 0.608765C8.0183 -0.107015 6.9817 -0.107015 6.55509 0.608766L0.161178 11.3368C-0.275824 12.07 0.252503 13 1.10608 13H13.8939C14.7475 13 15.2758 12.07 14.8388 11.3368L8.4449 0.608765ZM7.4141 1.12073C7.45288 1.05566 7.54712 1.05566 7.5859 1.12073L13.9798 11.8488C14.0196 11.9154 13.9715 12 13.8939 12H1.10608C1.02849 12 0.980454 11.9154 1.02018 11.8488L7.4141 1.12073ZM6.8269 4.48611C6.81221 4.10423 7.11783 3.78663 7.5 3.78663C7.88217 3.78663 8.18778 4.10423 8.1731 4.48612L8.01921 8.48701C8.00848 8.766 7.7792 8.98664 7.5 8.98664C7.2208 8.98664 6.99151 8.766 6.98078 8.48701L6.8269 4.48611ZM8.24989 10.476C8.24989 10.8902 7.9141 11.226 7.49989 11.226C7.08567 11.226 6.74989 10.8902 6.74989 10.476C6.74989 10.0618 7.08567 9.72599 7.49989 9.72599C7.9141 9.72599 8.24989 10.0618 8.24989 10.476Z'
+            fill='currentColor'
+            fill-rule='evenodd'
+            clip-rule='evenodd'></path>
+        </svg>
+      </h2>
+    </div>
+
+    <div class='relative top-16'>
+      <div class='h__cover'>
+        <h3 class='list__item'>Creative Design</h3>
+      </div>
+      <div class='h__cover'>
+        <h3 class='list__item'>Interface Design</h3>
+      </div>
+      <div class='h__cover'>
+        <h3 class='list__item'>Interaction + Development</h3>
+      </div>
+      <div class='h__cover'>
+        <h3 class='list__item'>Front + Backend Development</h3>
+      </div>
+    </div>
+
+    <div class='h__cover'>
+      <h3 class='top-16 h__ls'>Launching Soon</h3>
+    </div>
+
+    <ul class='relative top-16 flex align-items socials'>
+      <a href='/' class='h__cover'>
+        <span class='block social__links'>Instagram</span>
+      </a>
+
+      <a href='/' class='h__cover'>
+        <span class='block social__links'>Twitter</span>
+      </a>
+
+      <a href='/' class='h__cover'>
+        <span class='block social__links'>Facebook</span>
+      </a>
+    </ul>
+  </div>
+</section>
 
 <style lang='scss'>
-  .container {
+  .h__container {
     position: relative;
+    letter-spacing: -0.011em;
+    line-height: 1.3;
+  }
 
-    .top {
-      position: relative;
-      width: 100%;
+  .socials {
+    & > a {
+      margin-right: 0;
 
-      @media only screen and (min-width: 415px) {
-        padding: 50vh var(--px) 0 var(--px);
-        margin-bottom: 47rem;
+      &:not(:last-child) {
+        margin-right: 0.3em;
       }
+    }
+  }
 
-      .line {
-        position: absolute;
-        left: var(--px);
-        bottom: 0px;
-        width: calc(100% - var(--px) * 2);
-        height: 1px;
-        background: #120902;
-      }
+  svg {
+    display: block;
+    margin-top: 0.215em;
+    margin-left: 0.3em;
+  }
 
-      .intro_title {
-        width: 100%;
-        position: relative;
-        display: inline-flex;
-        font-size: 3rem;
-        font-weight: 600;
-        letter-spacing: -0.05em;
-        margin-bottom: 1rem;
+  .top-16 {
+    margin-top: 2em;
+  }
 
-        & > span {
-          display: inline-block;
-          position: relative;
-          margin-right: 14.2rem;
+  .h__cover {
+    position: relative;
+    overflow: hidden;
+  }
 
-          &:first-child {
-            left: var(--px);
-          }
+  .h__content {
+    margin-left: 50%;
+    padding-top: 0.75rem;
+    padding-left: 0;
+  }
 
-          &:last-child {
-            left: var(--px);
-            margin-right: 0;
-          }
-        }
+  .h__logo {
+    position: absolute;
+    top: 0.75rem;
+    left: 2.5em;
+
+    & > h1 {
+      text-transform: capitalize;
+
+      & > span {
+        display: inline-block;
+        text-transform: uppercase;
       }
     }
   }
 </style>
-
-<script>
-  import { animate, stagger, inView } from 'motion';
-
-  const listSections = document.querySelectorAll('.list');
-
-  inView(listSections, ({ target }) => {
-    animate(
-      target.querySelectorAll('.list-item'),
-      { y: ['120%', 0], opacity: [0, 1] },
-      {
-        duration: 1.5,
-        delay: stagger(1),
-        easing: [0.16, 1, 0.3, 1],
-      }
-    );
-  });
-</script>
