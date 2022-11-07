@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.11.0",
+    "@storyblok/astro": "^1.1.1",
     "@studio-freight/lenis": "^0.2.9",
     "astro": "^1.4.5",
     "gsap": "^3.11.3",

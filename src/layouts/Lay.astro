@@ -14,25 +14,31 @@ const { title } = Astro.props;
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <title>{`${title} | Studio Represent`}</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
+      rel='stylesheet'
+    />
   </head>
   <body>
-    <div class='l-root'>
-      <main class='l-container'>
-        <div class='l-wrapper'>
+    <div class='seit__root'>
+      <main class='site__container'>
+        <div class='site__wrapper'>
           <slot />
         </div>
       </main>
+      <div class='site__bg'>
+        <!-- <div class='relative'> -->
+        <div class='w-full relative overflow-hidden z-10 site__reveal'>
+          <!-- <div class='logo__mask'></div> -->
+          <img src='/slogo.svg' alt='logo' class='site__logo' />
+          <!-- </div> -->
+        </div>
+      </div>
     </div>
 
     <style lang='scss' is:global>
-      @font-face {
-        font-family: 'SSRegular';
-        font-style: normal;
-        font-weight: normal;
-        font-display: swap;
-        src: url('/fonts/SSRegular.woff2') format('woff2');
-      }
-
       *,
       *::before,
       *::after {
@@ -42,29 +48,15 @@ const { title } = Astro.props;
       }
 
       :root {
-        --font: 'SSRegular', system-ui, sans-serif;
         --px: 1.5rem;
         --py: 1.5rem;
-        --accent: 124, 58, 237;
-        --bg: rgb(0, 2, 18);
-        --fg: hsl(56, 3.7%, 17.4%);
-        --text-color: rgba(255, 255, 255, 0.85);
-        --border-color: rgba(255, 255, 255, 0.3);
-        --ls: -0.09em;
-        --duration: 0.5s;
-        --size-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
-        --size-400: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
-        --size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
-        --size-600: clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem);
-        --size-700: clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem);
-        --size-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
-        --size-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
-        --size-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
-        --size-2000: clamp(16.01rem, 16.12rem + 16.1vw, 16.28rem);
+        --bg: ##f1ede8;
+        --fg: #120902;
+        --siteBg: #0a0a00;
+        --font: 'Inter', system-ui, sans-serif;
       }
 
       html {
-        font-family: var(--font);
         scroll-behavior: initial;
       }
 
@@ -72,6 +64,12 @@ const { title } = Astro.props;
       body {
         width: 100%;
         min-height: 100%;
+      }
+
+      a {
+        text-decoration: inherit;
+        color: inherit;
+        background-color: transparent;
       }
 
       a:focus,
@@ -87,22 +85,24 @@ const { title } = Astro.props;
 
       body {
         width: 100%;
-        color: #120902;
-        background-color: #f7f4ef;
-        font-size: 1rem;
+        color: var(--fg);
+        font-size: 16px;
+        background-color: var(--bg);
+        font-family: var(--font);
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
         font-variant-ligatures: contextual common-ligatures;
         font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
       }
 
-      .l-root {
+      .site__root {
+        position: relative;
         display: flex;
         flex-direction: column;
         width: 100%;
       }
 
-      .l-container {
+      .site__container {
         display: flex;
         flex-grow: 1;
         flex-shrink: 1;
@@ -110,10 +110,48 @@ const { title } = Astro.props;
         flex-direction: column;
       }
 
-      .l-wrapper {
+      .site__wrapper {
         width: 100%;
         min-height: 100vh;
         min-height: calc(var(--vh, 1vh) * 100);
+      }
+
+      .site__bg {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--siteBg);
+        z-index: 100;
+
+        .z-10 {
+          z-index: 10;
+        }
+
+        .logo__mask {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          opacity: 0.9;
+          z-index: 10;
+          background-color: var(--siteBg);
+        }
+
+        .site__logo {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+
+        path {
+          fill: #f7f4ef;
+        }
       }
 
       .w-full {
@@ -145,6 +183,42 @@ const { title } = Astro.props;
         position: relative;
       }
 
+      .link {
+        cursor: pointer;
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .link::before,
+      .link::after {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        top: 100%;
+        left: 0;
+        pointer-events: none;
+      }
+
+      .link::before {
+        content: '';
+      }
+
+      .link--metis {
+        text-transform: inherit;
+      }
+
+      .link--metis::before {
+        transform-origin: 100% 50%;
+        transform: scale3d(0, 1, 1);
+        transition: transform 0.5s;
+      }
+
+      .link--metis:hover::before {
+        transform-origin: 0% 50%;
+        transform: scale3d(1, 1, 1);
+      }
+
       .flex {
         display: flex;
 
@@ -170,15 +244,17 @@ const { title } = Astro.props;
 
         &.space-between {
           justify-content: space-between;
+          transform: translate(0%, -110%) translate3d(0px, 0px 0px);
         }
       }
     </style>
 
     <script>
       import Lenis from '@studio-freight/lenis';
+      import { timeline } from 'motion';
 
       const lenis = new Lenis({
-        duration: 1.2,
+        duration: 1,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
         direction: 'vertical',
         smooth: true,
@@ -202,18 +278,85 @@ const { title } = Astro.props;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
       });
 
-      lenis.on('scroll', ({ scroll }) => {
-        const progress = scroll;
-        const ani = document.querySelector(
-          '.a-represent'
-        ) as HTMLElement | null;
+      // lenis.on('scroll', ({ scroll }) => {
+      //   const progress = scroll;
+      //   const ani = document.querySelector(
+      //     '.a-represent'
+      //   ) as HTMLElement | null;
 
-        ani.style.transform = `scale(${1 - progress / 420})`;
+      //   ani.style.transform = `scale(${1 - progress / 420}, ${
+      //     1 - progress / 420
+      //   }) translateZ(0px)`;
 
-        if (progress >= 500) {
-          ani.style.transform = `scale(1)`;
-        }
-      });
+      //   if (progress >= 500) {
+      //     ani.style.transform = `scale(1, 1)`;
+      //   }
+      // });
+
+      const siteBg = document.querySelector('.site__bg');
+      const ocontainer = document.querySelector('.o-container');
+
+      const siteReveal = document.querySelector('.site__reveal');
+      const logpMask = document.querySelector('.logo__mask');
+      const sitelOGO = document.querySelector('.site__logo');
+
+      timeline([
+        [
+          sitelOGO,
+          {
+            y: ['110%', '0%'],
+          },
+          { duration: 1.2, easing: [0.83, 0, 0.17, 1] },
+        ],
+        [
+          siteReveal,
+          {
+            y: ['0px', '280px'],
+            scale: [0.25, 0.9],
+            willChange: 'transform',
+          },
+          { duration: 1.1, easing: [0.83, 0, 0.17, 1] },
+        ],
+        [
+          siteBg,
+          {
+            opacity: [1, 0],
+          },
+          { duration: 1 },
+        ],
+        [
+          ocontainer,
+          { opacity: [0, 1] },
+          {
+            duration: 1,
+          },
+        ],
+
+        // [
+        //   siteReveal,
+        //   { scale: [0.8, 1], opacity: [0.5, 1], willChange: 'transform' },
+        //   { duration: 1.1, easing: [0.83, 0, 0.17, 1], delay: 1 },
+        // ],
+        // [
+        //   logpMask,
+        //   { y: ['0%', '-180%'], willChange: 'transform' },
+        //   { duration: 1.6, easing: [0.985, 0.01, 0.315, 0.83], delay: 0.15 },
+        // ],
+        // [
+        //   siteBg,
+        //   {
+        //     opacity: [1, 0],
+        //   },
+        //   { duration: 1 },
+        // ],
+        // [
+        //   ocontainer,
+        //   { opacity: [0, 1] },
+        //   {
+        //     duration: 1,
+        //   },
+        // ],
+      ]);
     </script>
   </body>
 </html>
