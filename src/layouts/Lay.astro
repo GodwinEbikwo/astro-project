@@ -160,8 +160,8 @@ const { title } = Astro.props;
         h4,
         h5,
         h6 {
-          font-size: initial;
-          font-family: initial;
+          font-size: inherit;
+          font-family: inherit;
           font-weight: inherit;
         }
 
@@ -169,23 +169,10 @@ const { title } = Astro.props;
           position: fixed;
           top: 0;
           left: 0;
-          height: 100%;
           width: 100%;
           overflow: hidden;
-        }
-
-        .site__container {
-          display: flex;
-          flex-grow: 1;
-          flex-shrink: 1;
-          flex-basis: auto;
-          flex-direction: column;
-        }
-
-        .site__wrapper {
-          width: 100%;
-          min-height: 100vh;
-          min-height: calc(var(--vh, 1vh) * 100);
+          height: 100vh;
+          height: calc(var(--vh, 1vh) * 100);
         }
 
         .site__bg {
@@ -198,14 +185,21 @@ const { title } = Astro.props;
         }
 
         .logo__wrapper {
+          // position: absolute;
+          // top: 0;
+          // right: 0;
+          // bottom: 0;
+          // left: 0;
+          // display: flex;
+          // align-items: center;
+          // justify-content: center;
+
           position: absolute;
-          top: 0;
-          right: 0;
           bottom: 0;
           left: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          padding: 1rem;
+          width: 100%;
+          overflow: hidden;
         }
 
         .site__logo {
@@ -339,14 +333,13 @@ const { title } = Astro.props;
         });
 
         let coverBg = document.querySelector('.site__bg');
-        let covermASK = document.querySelector('.col');
+        let covermASK = document.querySelector('.logo__wrapper');
         let coverLogo = document.querySelector('.site__logo');
         let ocontainer = document.querySelector('.h__container');
         let socialLinks = document.querySelectorAll('.social__links');
         let alert = document.querySelector('.h__ls');
         let listItem = document.querySelectorAll('.list__item');
         let firstItem = document.querySelector('.h__sd');
-        let hLogo = document.querySelector('.h__logo__item');
 
         timeline([
           [
@@ -359,7 +352,7 @@ const { title } = Astro.props;
           [
             covermASK,
             {
-              y: ['0px', '280px'],
+              y: ['-350px', '0px'],
               scale: [0.25, 0.98],
               willChange: 'transform',
             },
@@ -382,16 +375,6 @@ const { title } = Astro.props;
             {
               at: '-0.9',
               duration: 1,
-            },
-          ],
-          [
-            hLogo,
-            {
-              y: ['110%', '0%'],
-            },
-            {
-              at: '-0.65',
-              duration: 0.8,
             },
           ],
           [
