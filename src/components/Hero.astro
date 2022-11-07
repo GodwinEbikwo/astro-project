@@ -5,6 +5,10 @@
     </h1>
   </div>
 
+  <div class='h__time'>
+    <h1 id='time'></h1>
+  </div>
+
   <div class='h__content'>
     <div class='h__cover'>
       <h2 class='h__sd'>Site in Development</h2>
@@ -26,7 +30,7 @@
     </div>
 
     <div class='h__cover'>
-      <h3 class='top-16 h__ls'>Launching Soon</h3>
+      <h4 class='top-16 h__ls'>Launching Soon</h4>
     </div>
 
     <div class='relative top-16 flex align-items socials'>
@@ -87,6 +91,16 @@
     }
   }
 
+  .h__time {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+
+    @media (min-width: 768px) {
+      right: 2.5em;
+    }
+  }
+
   .h__logo {
     position: absolute;
     top: 0.75rem;
@@ -106,3 +120,8 @@
     }
   }
 </style>
+
+<script>
+  const timezone = new Date().toLocaleTimeString();
+  document.getElementById('time').innerHTML = timezone;
+</script>
