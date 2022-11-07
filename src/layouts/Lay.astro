@@ -28,119 +28,123 @@ const { title } = Astro.props;
           <slot />
         </div>
       </main>
-      <div class='site__bg'>
-        <!-- <div class='relative'> -->
-        <div class='w-full relative overflow-hidden z-10 site__reveal'>
-          <!-- <div class='logo__mask'></div> -->
+
+      <div class='cover__bg'></div>
+      <div class='logo__wrapper'>
+        <div class='w-full relative overflow-hidden col'>
           <img src='/slogo.svg' alt='logo' class='site__logo' />
-          <!-- </div> -->
         </div>
       </div>
-    </div>
 
-    <style lang='scss' is:global>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-      }
+      <!-- <div class='site__bg'> -->
+      <!-- <div class='relative'> -->
+      <!-- <div class='w-full relative overflow-hidden z-10 site__reveal'> -->
+      <!-- <img src='/slogo.svg' alt='logo' class='site__logo' /> -->
+      <!-- <div class='logo__mask'></div>
+          <img src='/slogo.svg' alt='logo' class='site__logo' />
+          </div> -->
+      <!-- </div> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
-      :root {
-        --px: 1.5rem;
-        --py: 1.5rem;
-        --bg: ##f1ede8;
-        --fg: #120902;
-        --siteBg: #0a0a00;
-        --font: 'Inter', system-ui, sans-serif;
-      }
-
-      html {
-        scroll-behavior: initial;
-      }
-
-      html,
-      body {
-        width: 100%;
-        min-height: 100%;
-      }
-
-      a {
-        text-decoration: inherit;
-        color: inherit;
-        background-color: transparent;
-      }
-
-      a:focus,
-      button:focus {
-        outline: none;
-      }
-
-      a:focus-visible,
-      button:focus-visible {
-        outline: 2px solid #eee;
-        outline-offset: 3px;
-      }
-
-      body {
-        width: 100%;
-        color: var(--fg);
-        font-size: 16px;
-        background-color: var(--bg);
-        font-family: var(--font);
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-        font-variant-ligatures: contextual common-ligatures;
-        font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
-      }
-
-      .site__root {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .site__container {
-        display: flex;
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: auto;
-        flex-direction: column;
-      }
-
-      .site__wrapper {
-        width: 100%;
-        min-height: 100vh;
-        min-height: calc(var(--vh, 1vh) * 100);
-      }
-
-      .site__bg {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--siteBg);
-        z-index: 100;
-
-        .z-10 {
-          z-index: 10;
+      <style lang='scss' is:global>
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
         }
 
-        .logo__mask {
-          position: absolute;
+        :root {
+          --px: 1.5rem;
+          --py: 1.5rem;
+          --bg: ##f1ede8;
+          --fg: #120902;
+          --siteBg: #0a0a00;
+          --font: 'Inter', system-ui, sans-serif;
+        }
+
+        html {
+          scroll-behavior: initial;
+        }
+
+        html,
+        body {
+          width: 100%;
+          min-height: 100%;
+        }
+
+        a {
+          text-decoration: inherit;
+          color: inherit;
+          background-color: transparent;
+        }
+
+        a:focus,
+        button:focus {
+          outline: none;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+          outline: 2px solid #eee;
+          outline-offset: 3px;
+        }
+
+        body {
+          width: 100%;
+          color: var(--fg);
+          font-size: 16px;
+          background-color: var(--bg);
+          font-family: var(--font);
+          -webkit-font-smoothing: antialiased;
+          text-rendering: optimizeLegibility;
+          font-variant-ligatures: contextual common-ligatures;
+          font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+        }
+
+        .site__root {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .site__container {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+          flex-basis: auto;
+          flex-direction: column;
+        }
+
+        .site__wrapper {
+          width: 100%;
+          min-height: 100vh;
+          min-height: calc(var(--vh, 1vh) * 100);
+        }
+
+        .cover__bg {
+          position: fixed;
           top: 0;
           right: 0;
           bottom: 0;
           left: 0;
-          opacity: 0.9;
-          z-index: 10;
           background-color: var(--siteBg);
+          z-index: 100;
+        }
+
+        .logo__wrapper {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 100;
         }
 
         .site__logo {
@@ -149,214 +153,269 @@ const { title } = Astro.props;
           height: auto;
         }
 
-        path {
-          fill: #f7f4ef;
-        }
-      }
-
-      .w-full {
-        width: 100%;
-      }
-
-      .h-full {
-        height: 100%;
-      }
-
-      .line {
-        overflow: hidden;
-        font-kerning: none;
-      }
-
-      .block {
-        display: block;
-      }
-
-      .inline-block {
-        display: inline-block;
-      }
-
-      .overflow-hidden {
-        overflow: hidden;
-      }
-
-      .relative {
-        position: relative;
-      }
-
-      .link {
-        cursor: pointer;
-        position: relative;
-        white-space: nowrap;
-      }
-
-      .link::before,
-      .link::after {
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        background: currentColor;
-        top: 100%;
-        left: 0;
-        pointer-events: none;
-      }
-
-      .link::before {
-        content: '';
-      }
-
-      .link--metis {
-        text-transform: inherit;
-      }
-
-      .link--metis::before {
-        transform-origin: 100% 50%;
-        transform: scale3d(0, 1, 1);
-        transition: transform 0.5s;
-      }
-
-      .link--metis:hover::before {
-        transform-origin: 0% 50%;
-        transform: scale3d(1, 1, 1);
-      }
-
-      .flex {
-        display: flex;
-
-        &.gap {
-          gap: 2em;
-        }
-
-        &.ai {
+        .site__bg {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: flex;
           align-items: center;
-        }
-
-        &.jc {
           justify-content: center;
+          background-color: var(--siteBg);
+          z-index: 10;
+
+          .z-10 {
+            z-index: 10;
+          }
+
+          .logo__mask {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0.9;
+            z-index: 10;
+            background-color: var(--siteBg);
+          }
+
+          .site__logo {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+
+          path {
+            fill: #f7f4ef;
+          }
         }
 
-        &.flex-column {
-          flex-direction: column;
+        .w-full {
+          width: 100%;
         }
 
-        &.flex-row {
-          flex-direction: row;
+        .h-full {
+          height: 100%;
         }
 
-        &.space-between {
-          justify-content: space-between;
-          transform: translate(0%, -110%) translate3d(0px, 0px 0px);
+        .line {
+          overflow: hidden;
+          font-kerning: none;
         }
-      }
-    </style>
 
-    <script>
-      import Lenis from '@studio-freight/lenis';
-      import { timeline } from 'motion';
+        .block {
+          display: block;
+        }
 
-      const lenis = new Lenis({
-        duration: 1,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-        direction: 'vertical',
-        smooth: true,
-        smoothTouch: false,
-        touchMultiplier: 2,
-        infinite: false,
-      });
+        .inline-block {
+          display: inline-block;
+        }
 
-      function raf(time) {
-        lenis.raf(time);
+        .overflow-hidden {
+          overflow: hidden;
+        }
+
+        .relative {
+          position: relative;
+        }
+
+        .link {
+          cursor: pointer;
+          position: relative;
+          white-space: nowrap;
+        }
+
+        .link::before,
+        .link::after {
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          background: currentColor;
+          top: 100%;
+          left: 0;
+          pointer-events: none;
+        }
+
+        .link::before {
+          content: '';
+        }
+
+        .link--metis {
+          text-transform: inherit;
+        }
+
+        .link--metis::before {
+          transform-origin: 100% 50%;
+          transform: scale3d(0, 1, 1);
+          transition: transform 0.5s;
+        }
+
+        .link--metis:hover::before {
+          transform-origin: 0% 50%;
+          transform: scale3d(1, 1, 1);
+        }
+
+        .flex {
+          display: flex;
+
+          &.gap {
+            gap: 2em;
+          }
+
+          &.ai {
+            align-items: center;
+          }
+
+          &.jc {
+            justify-content: center;
+          }
+
+          &.flex-column {
+            flex-direction: column;
+          }
+
+          &.flex-row {
+            flex-direction: row;
+          }
+
+          &.space-between {
+            justify-content: space-between;
+            transform: translate(0%, -110%) translate3d(0px, 0px 0px);
+          }
+        }
+      </style>
+
+      <script>
+        import Lenis from '@studio-freight/lenis';
+        import { timeline } from 'motion';
+
+        const lenis = new Lenis({
+          duration: 1,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+          direction: 'vertical',
+          smooth: true,
+          smoothTouch: false,
+          touchMultiplier: 2,
+          infinite: false,
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+
         requestAnimationFrame(raf);
-      }
 
-      requestAnimationFrame(raf);
-
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-      window.addEventListener('resize', () => {
         const vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
-      });
 
-      // lenis.on('scroll', ({ scroll }) => {
-      //   const progress = scroll;
-      //   const ani = document.querySelector(
-      //     '.a-represent'
-      //   ) as HTMLElement | null;
+        window.addEventListener('resize', () => {
+          const vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
 
-      //   ani.style.transform = `scale(${1 - progress / 420}, ${
-      //     1 - progress / 420
-      //   }) translateZ(0px)`;
+        // lenis.on('scroll', ({ scroll }) => {
+        //   const progress = scroll;
+        //   const ani = document.querySelector(
+        //     '.a-represent'
+        //   ) as HTMLElement | null;
 
-      //   if (progress >= 500) {
-      //     ani.style.transform = `scale(1, 1)`;
-      //   }
-      // });
+        //   ani.style.transform = `scale(${1 - progress / 420}, ${
+        //     1 - progress / 420
+        //   }) translateZ(0px)`;
 
-      const siteBg = document.querySelector('.site__bg');
-      const ocontainer = document.querySelector('.o-container');
+        //   if (progress >= 500) {
+        //     ani.style.transform = `scale(1, 1)`;
+        //   }
+        // });
 
-      const siteReveal = document.querySelector('.site__reveal');
-      const logpMask = document.querySelector('.logo__mask');
-      const sitelOGO = document.querySelector('.site__logo');
+        const siteBg = document.querySelector('.site__bg');
+        const ocontainer = document.querySelector('.o-container');
 
-      timeline([
-        [
-          sitelOGO,
-          {
-            y: ['110%', '0%'],
-          },
-          { duration: 1.2, easing: [0.83, 0, 0.17, 1] },
-        ],
-        [
-          siteReveal,
-          {
-            y: ['0px', '280px'],
-            scale: [0.25, 0.9],
-            willChange: 'transform',
-          },
-          { duration: 1.1, easing: [0.83, 0, 0.17, 1] },
-        ],
-        [
-          siteBg,
-          {
-            opacity: [1, 0],
-          },
-          { duration: 1 },
-        ],
-        [
-          ocontainer,
-          { opacity: [0, 1] },
-          {
-            duration: 1,
-          },
-        ],
+        const siteReveal = document.querySelector('.site__reveal');
+        const logpMask = document.querySelector('.logo__mask');
+        const sitelOGO = document.querySelector('.site__logo');
 
-        // [
-        //   siteReveal,
-        //   { scale: [0.8, 1], opacity: [0.5, 1], willChange: 'transform' },
-        //   { duration: 1.1, easing: [0.83, 0, 0.17, 1], delay: 1 },
-        // ],
-        // [
-        //   logpMask,
-        //   { y: ['0%', '-180%'], willChange: 'transform' },
-        //   { duration: 1.6, easing: [0.985, 0.01, 0.315, 0.83], delay: 0.15 },
-        // ],
-        // [
-        //   siteBg,
-        //   {
-        //     opacity: [1, 0],
-        //   },
-        //   { duration: 1 },
-        // ],
-        // [
-        //   ocontainer,
-        //   { opacity: [0, 1] },
-        //   {
-        //     duration: 1,
-        //   },
-        // ],
-      ]);
-    </script>
+        let coverBg = document.querySelector('.cover__bg');
+        let covermASK = document.querySelector('.col');
+        let coverLogo = document.querySelector('.site__logo');
+
+        timeline([
+          [
+            coverLogo,
+            {
+              y: ['110%', '0%'],
+            },
+            { delay: 0.2, duration: 1.2, easing: [0.83, 0, 0.17, 1] },
+          ],
+          [
+            covermASK,
+            {
+              y: ['0px', '280px'],
+              scale: [0.25, 0.9],
+              willChange: 'transform',
+            },
+            { duration: 1.1, easing: [0.83, 0, 0.17, 1] },
+          ],
+          [
+            coverBg,
+            {
+              y: ['0%', '-110%'],
+              willChange: 'transform',
+            },
+            {
+              at: '-0.93',
+              duration: 1,
+              easing: [0.83, 0, 0.17, 1],
+            },
+          ],
+          [
+            ocontainer,
+            { opacity: [0, 1] },
+            {
+              duration: 1,
+            },
+          ],
+          // [
+          //   coverBg,
+          //   {
+          //     y: ['0%', '-110%'],
+          //     willChange: 'transform',
+          //   },
+          //   {
+          //     at: '-0.5',
+          //     duration: 1,
+          //     easing: [0.83, 0, 0.17, 1],
+          //   },
+          // ],
+
+          // [
+          //   siteReveal,
+          //   { scale: [0.8, 1], opacity: [0.5, 1], willChange: 'transform' },
+          //   { duration: 1.1, easing: [0.83, 0, 0.17, 1], delay: 1 },
+          // ],
+          // [
+          //   logpMask,
+          //   { y: ['0%', '-180%'], willChange: 'transform' },
+          //   { duration: 1.6, easing: [0.985, 0.01, 0.315, 0.83], delay: 0.15 },
+          // ],
+          // [
+          //   siteBg,
+          //   {
+          //     opacity: [1, 0],
+          //   },
+          //   { duration: 1 },
+          // ],
+          // [
+          //   ocontainer,
+          //   { opacity: [0, 1] },
+          //   {
+          //     duration: 1,
+          //   },
+          // ],
+        ]);
+      </script>
+    </div>
   </body>
 </html>
