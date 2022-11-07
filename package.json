@@ -12,14 +12,12 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.11.0",
-    "@storyblok/astro": "^1.1.1",
     "@studio-freight/lenis": "^0.2.9",
     "astro": "^1.4.5",
     "gsap": "^3.11.3",
     "motion": "^10.14.2",
     "sharp": "^0.31.1",
-    "split-type": "^0.3.2",
-    "splitting": "^1.0.6"
+    "split-type": "^0.3.2"
   },
   "devDependencies": {
     "prettier": "^2.7.1",
