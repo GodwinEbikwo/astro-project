@@ -20,12 +20,6 @@ const { title } = Astro.props;
       content='A creative studio that does fucking good work, based out from Nigeria'
     />
     <title>{`${title} | Studio Represent`}</title>
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-    <link
-      href='https://fonts.googleapis.com/css2?family=DM+Sans&display=swap'
-      rel='stylesheet'
-    />
   </head>
   <body>
     <main class='site__root'>
@@ -49,8 +43,8 @@ const { title } = Astro.props;
           --py: 1.5rem;
           --bg: ##f1ede8;
           --fg: #120902;
-          --siteBg: #0a0a00;
-          --font: 'DM Sans', system-ui, sans-serif;
+          --siteBg: #ff5400;
+          --font: system-ui, sans-serif;
         }
 
         html,
@@ -134,12 +128,6 @@ const { title } = Astro.props;
           outline: none;
         }
 
-        a:focus-visible,
-        button:focus-visible {
-          outline: 2px solid #eee;
-          outline-offset: 3px;
-        }
-
         body {
           width: 100%;
           color: var(--fg);
@@ -154,9 +142,6 @@ const { title } = Astro.props;
 
         ul,
         li {
-          margin: 0;
-          padding: 0;
-          display: block;
           list-style: none;
         }
 
@@ -168,7 +153,6 @@ const { title } = Astro.props;
         h6 {
           font-size: inherit;
           font-family: inherit;
-          font-weight: inherit;
         }
 
         .site__root {
@@ -300,25 +284,7 @@ const { title } = Astro.props;
       </style>
 
       <script>
-        import Lenis from '@studio-freight/lenis';
         import { timeline, stagger } from 'motion';
-
-        const lenis = new Lenis({
-          duration: 1,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-          direction: 'vertical',
-          smooth: true,
-          smoothTouch: false,
-          touchMultiplier: 2,
-          infinite: false,
-        });
-
-        function raf(time) {
-          lenis.raf(time);
-          requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
 
         const vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
