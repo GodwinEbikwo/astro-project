@@ -1,50 +1,51 @@
 <div class='h__container'>
   <div class='h__logo'>
     <h1 class='h__cover'>
-      <span class='block h__logo__item'>Ambacka -</span> a creative studio
+      <span class='block h__logo__item flip'>Ambacka -</span>
+      <span class='block flip'>a creative studio</span>
     </h1>
-  </div>
-
-  <div class='h__time'>
-    <h1 id='time'></h1>
   </div>
 
   <div class='h__content'>
     <div class='h__cover'>
-      <h2 class='h__sd'>Site in Development</h2>
+      <h2 class='h__sd flip'>Site in Development</h2>
     </div>
 
     <div class='relative top-16'>
       <div class='h__cover'>
-        <h3 class='list__item'>Creative Design</h3>
+        <h3 class='list__item flip'>Creative Design</h3>
       </div>
       <div class='h__cover'>
-        <h3 class='list__item'>Interface Design</h3>
+        <h3 class='list__item flip'>Interface Design</h3>
       </div>
       <div class='h__cover'>
-        <h3 class='list__item'>Interaction + Development</h3>
+        <h3 class='list__item flip'>Interaction + Development</h3>
       </div>
       <div class='h__cover'>
-        <h3 class='list__item'>Front + Backend Development</h3>
+        <h3 class='list__item flip'>Front + Backend Development</h3>
       </div>
     </div>
 
     <div class='h__cover'>
-      <h4 class='top-16 h__ls'>Launching Soon</h4>
+      <h4 class='top-16 h__ls flip'>Launching Soon</h4>
     </div>
 
     <div class='relative top-16 flex align-items socials'>
       <a href='/' class='h__cover'>
-        <span class='block social__links'>Instagram,</span>
+        <span class='block social__links flip'>Instagram,</span>
       </a>
 
       <a href='/' class='h__cover'>
-        <span class='block social__links'>Twitter,</span>
+        <span class='block social__links flip'>Twitter,</span>
       </a>
 
       <a href='/' class='h__cover'>
-        <span class='block social__links'>Facebook</span>
+        <span class='block social__links flip'>Facebook</span>
       </a>
+    </div>
+
+    <div class='h__time overflow-hidden'>
+      <h1 id='time' class='flip'></h1>
     </div>
   </div>
 </div>
@@ -111,11 +112,13 @@
     }
 
     & > h1 {
-      text-transform: capitalize;
-
       & > span {
         display: inline-block;
         text-transform: uppercase;
+
+        &:last-child {
+          text-transform: capitalize;
+        }
       }
     }
   }

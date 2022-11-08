@@ -295,7 +295,6 @@ const { title } = Astro.props;
 
           &.space-between {
             justify-content: space-between;
-            transform: translate(0%, -110%) translate3d(0px, 0px 0px);
           }
         }
       </style>
@@ -333,10 +332,7 @@ const { title } = Astro.props;
         let covermASK = document.querySelector('.logo__wrapper');
         let coverLogo = document.querySelector('.site__logo');
         let ocontainer = document.querySelector('.h__container');
-        let socialLinks = document.querySelectorAll('.social__links');
-        let alert = document.querySelector('.h__ls');
-        let listItem = document.querySelectorAll('.list__item');
-        let firstItem = document.querySelector('.h__sd');
+        let Flip = document.querySelectorAll('.flip');
 
         timeline([
           [
@@ -375,45 +371,16 @@ const { title } = Astro.props;
             },
           ],
           [
-            firstItem,
+            Flip,
             {
-              y: ['100%', '0%'],
+              rotate: [-8, 0],
+              y: ['110%', '0%'],
+              willChange: 'transform',
             },
             {
-              at: '-0.5',
-              duration: 0.8,
-            },
-          ],
-          [
-            listItem,
-            {
-              y: ['100%', '0%'],
-            },
-            {
-              at: '-0.45',
-              duration: 0.8,
-              delay: stagger(0.05),
-            },
-          ],
-          [
-            alert,
-            {
-              y: ['100%', '0%'],
-            },
-            {
-              at: '-0.35',
-              duration: 0.8,
-            },
-          ],
-          [
-            socialLinks,
-            {
-              y: ['100%', '0%'],
-            },
-            {
-              at: '-0.3',
-              duration: 0.8,
-              delay: stagger(0.05),
+              at: '-0.7',
+              duration: 1,
+              delay: stagger(0.1),
             },
           ],
         ]);
