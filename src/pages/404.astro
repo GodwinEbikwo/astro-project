@@ -1,0 +1,39 @@
+---
+import Lay from '../layouts/Lay.astro';
+---
+
+<Lay title='404'>
+  <div class='container flex ai jc'>
+    <div class='relative w-full'>
+      <h1>
+        <div>We couldn't</div>
+        <div>Find the</div>
+        <div>Page you</div>
+        <div>were</div>
+        <div>Looking for</div>
+      </h1>
+    </div>
+  </div>
+</Lay>
+
+<style>
+  .container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 5vw;
+    font-weight: 700;
+    line-height: 0.79;
+    text-transform: uppercase;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      'Helvetica Neue', sans-serif;
+    letter-spacing: -0.07em;
+  }
+</style>

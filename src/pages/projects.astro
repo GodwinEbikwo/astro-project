@@ -1,0 +1,28 @@
+---
+import Lay from '../layouts/Lay.astro';
+---
+
+<Lay title='Information'>
+  <div class='i__container'>
+    <div class='i__wrapper'>
+      <h1>Hello</h1>
+    </div>
+  </div>
+</Lay>
+
+<style lang='scss'>
+  .i__container {
+    position: relative;
+  }
+
+  .i__wrapper {
+    padding-top: 9rem;
+    padding-left: 1rem;
+
+    @media (min-width: 768px) {
+      margin-left: 50%;
+      padding-top: 0.75rem;
+      padding-left: 0;
+    }
+  }
+</style>
