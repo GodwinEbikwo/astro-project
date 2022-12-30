@@ -1,0 +1,64 @@
+<header class='header'>
+  <div class='header_container'>
+    <nav class='header_navigation'>
+      <a class='mobile-toggle' href='#'> menu</a>
+
+      <div class='logo'>
+        <a href='#'><img src='bc.svg' alt='Logo' /></a>
+      </div>
+      <div class='button'>
+        <a href='#' class='header_btn btn'>start</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style lang='scss'>
+  .header {
+    position: relative;
+    z-index: 999;
+    background-color: var(--bg);
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
+    transition: background 0.3s;
+    min-height: 70px;
+  }
+
+  .header_container {
+    max-width: calc(1500px + 30px * 2);
+    padding: 13px 1rem;
+    margin: auto;
+    width: 100%;
+  }
+
+  .header_navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .mobile-toggle {
+      flex: 1;
+    }
+
+    .logo {
+      flex: 0 auto;
+      line-height: 0;
+
+      img {
+        height: 30px;
+      }
+    }
+
+    .button {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1;
+
+      .header_btn {
+        color: var(--bg);
+        background: rgb(242, 15, 15) !important;
+        padding: 0 10px;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+import Box from '../layouts/Box.astro';
+---
+
+<Box title='Yano'>
+  <section class='root'>
+    <div class='container'>
+      <div class='intro'>
+        <span class='tagline P'>Paw &gt; licking &gt; good</span>
+        <h1 class='heading'>A smart box that learns your dog's taste</h1>
+        <a class='hero_cta btn' href='/'>Start your trail for free</a>
+
+        <div class='hero_img'>
+          <img src='/public/mango.webp' alt='mango' />
+        </div>
+      </div>
+    </div>
+  </section>
+</Box>
+
+<style lang='scss'>
+  .root {
+    --mb: 18px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    padding: 5rem 1rem;
+
+    .tagline {
+      text-transform: uppercase;
+      margin-bottom: var(--mb);
+      font-family: var(--font-5);
+    }
+
+    .heading {
+      word-wrap: nowrap;
+      user-select: none;
+      line-height: 1.1;
+      text-align: center;
+      margin-bottom: var(--mb);
+      letter-spacing: -0.011em;
+      text-transform: uppercase;
+      font-family: var(--font-5);
+    }
+
+    .hero_cta {
+      width: calc(100vw - 100px);
+      height: 50px;
+    }
+
+    .hero_img {
+      position: relative;
+      width: 100%;
+      height: auto;
+
+      & > img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    p {
+      line-height: 32px;
+      margin-bottom: var(--mb);
+      max-width: 500px;
+      text-align: center;
+      font-weight: 400;
+      letter-spacing: -0.011em;
+    }
+  }
+</style>
+
+<script></script>

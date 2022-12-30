@@ -8,20 +8,20 @@
 
   <div class='h__content'>
     <div class='mask'>
-      <h2 class='h__sd flip'>Site in Development</h2>
+      <h2 class='flip'>Site in Development</h2>
     </div>
 
     <div class='relative top-16'>
-      <div class='mask'>
+      <div class='mask spacing'>
         <h3 class='flip'>Creative Design</h3>
       </div>
-      <div class='mask'>
+      <div class='mask spacing'>
         <h3 class='flip'>Interface Design</h3>
       </div>
-      <div class='mask'>
+      <div class='mask spacing'>
         <h3 class='flip'>Interaction + Development</h3>
       </div>
-      <div class='mask'>
+      <div class='mask spacing'>
         <h3 class='flip'>Front + Backend Development</h3>
       </div>
     </div>
@@ -30,13 +30,13 @@
       <h4 class='top-16 flip'>Launching Soon</h4>
     </div>
 
-    <div class='relative top-16 flex'>
+    <div class='flex relative top-16 socials'>
       <a href='/projects' class='mask'>
-        <span class='block flip'>Instagram,</span>
+        <span class='block flip'>Instagram -</span>
       </a>
 
       <a href='/' class='mask'>
-        <span class='block flip'>Twitter,</span>
+        <span class='block flip'>Twitter -</span>
       </a>
 
       <a href='/' class='mask'>
@@ -53,7 +53,15 @@
 <style lang='scss'>
   .h__container {
     position: relative;
-    // letter-spacing: -0.015em;
+    letter-spacing: -0.015em;
+  }
+
+  .spacing {
+    margin-bottom: 0.5em;
+  }
+
+  .top-16 {
+    margin-top: 2em;
   }
 
   .socials {
@@ -64,10 +72,6 @@
         margin-right: 0.3em;
       }
     }
-  }
-
-  .top-16 {
-    margin-top: 2em;
   }
 
   .mask {

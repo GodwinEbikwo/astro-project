@@ -1,0 +1,341 @@
+<header class='root'>
+  <div class='header'>
+    <a href='/' class='headerlogo'>Dermata</a>
+
+    <div class='header_main_top'>
+      <div class='header_search'>
+        <div class='search_root'>
+          <label class='hidden'> Search</label>
+          <input id='id' class='input' placeholder='Search...' />
+        </div>
+      </div>
+
+      <div class='header_controls'>
+        <div class='header_switcher_box'>
+          <button>click me</button>
+        </div>
+
+        <div class='header_account_link'>
+          <button class='item' aria-label='login'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='18'
+              height='18'
+              viewBox='0 0 18 18'
+              fill='none'
+            >
+              <path
+                fill-rule='evenodd'
+                clip-rule='evenodd'
+                d='M4.5 6C4.5 3.51472 6.51472 1.5 9 1.5C11.4853 1.5 13.5 3.51472 13.5 6C13.5 7.77719 12.4698 9.31376 10.974 10.0451C12.0211 10.3653 12.9845 10.9386 13.773 11.727C15.0388 12.9929 15.75 14.7098 15.75 16.5H14.25C14.25 15.1076 13.6969 13.7723 12.7123 12.7877C11.7277 11.8031 10.3924 11.25 9 11.25C7.60761 11.25 6.27226 11.8031 5.28769 12.7877C4.30312 13.7723 3.75 15.1076 3.75 16.5H2.25C2.25 14.7098 2.96116 12.9929 4.22703 11.727C5.01548 10.9386 5.9789 10.3653 7.02603 10.0451C5.53022 9.31376 4.5 7.77719 4.5 6ZM9 9C7.34315 9 6 7.65685 6 6C6 4.34315 7.34315 3 9 3C10.6569 3 12 4.34315 12 6C12 7.65685 10.6569 9 9 9Z'
+                fill='currentColor'></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class='header_account_link'>
+          <button class='item'>
+            <span class='bagCountTitle'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='18'
+                height='18'
+                viewBox='0 0 18 18'
+                fill='none'
+              >
+                <path
+                  fill-rule='evenodd'
+                  clip-rule='evenodd'
+                  d='M12.182 3.56802C13.0259 4.41193 13.5 5.55653 13.5 6.75H16.5L15.6667 15.75H2.33333L1.77778 9.75H3.28419L3.70086 14.25H14.2991L14.8547 8.25H1.63889L1.5 6.75L4.5 6.75C4.5 5.55653 4.97411 4.41193 5.81802 3.56802C6.66193 2.72411 7.80653 2.25 9 2.25C10.1935 2.25 11.3381 2.72411 12.182 3.56802ZM9 3.75C8.20435 3.75 7.44129 4.06607 6.87868 4.62868C6.31607 5.19129 6 5.95435 6 6.75L12 6.75C12 5.95435 11.6839 5.19129 11.1213 4.62868C10.5587 4.06607 9.79565 3.75 9 3.75Z'
+                  fill='currentColor'></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class='header_main_bottom'>
+      <nav class='header_nav primary'>
+        <ul class='flex'>
+          <li class='header_nav_item'>
+            <a href='/search'>Bags</a>
+          </li>
+          <li class='header_nav_item'>
+            <a href='/search'>Tires</a>
+          </li>
+          <li class='header_nav_item'>
+            <a href='/search'>Saddles</a>
+          </li>
+          <li class='header_nav_item'>
+            <a href='/search'>Accessories</a>
+          </li>
+          <li class='header_nav_item'>
+            <a href='/search'>Inspiration</a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class='header_nav secondary'>
+        <ul class='flex'>
+          <li class='header_nav_item'>
+            <a href='/'>Faq</a>
+          </li>
+          <li class='header_nav_item'>
+            <a href='/'>contact</a>
+          </li>
+
+          <li class='header_nav_item'>
+            <a href='/'>shipping & returns</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style lang='scss'>
+  .root {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 70;
+
+    --py-2: 1rem;
+    --px-2: 1rem;
+
+    --bg: var(--sage1);
+    --text-color: #222;
+    --white: #000;
+    --accent: #101010;
+    --black: #fff;
+    --border-color: rgba(0, 0, 0, 0.6);
+    --input-bg: hsl(0 0% 9.5%);
+    --input-border-color: var(--sage11);
+    --nav-padding: 1.1rem;
+  }
+
+  .search_root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-right: 0;
+  }
+
+  .input {
+    width: 100%;
+    height: 50px;
+    border: none;
+    padding: 0rem 1.5rem;
+    background-color: #f7f7f7;
+    border-top: 0;
+    border-left: 0;
+    text-transform: uppercase;
+  }
+
+  .input::placeholder {
+    color: var(--sage9);
+  }
+
+  .input:active {
+    text-transform: lowercase;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border-color);
+    backface-visibility: hidden;
+    user-select: none;
+    transform-style: flat;
+    -webkit-user-drag: none;
+    outline: 0;
+    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: 13% auto;
+    grid-template-rows: 3.25rem 3.25rem;
+    grid-template-areas:
+      'logo header-top'
+      'logo header-bottom';
+    transform: translateZ(0);
+  }
+
+  .bagCountTitle {
+    display: inline;
+    color: var(--text-color);
+    margin-right: 0.5em;
+    text-transform: uppercase;
+  }
+
+  .bagCount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--button-bg);
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 9999px;
+    color: var(--button-text);
+  }
+
+  .avatarButton {
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 9999px;
+  }
+
+  .avatarButton:focus,
+  .mobileMenu:focus {
+    outline: none;
+  }
+
+  .mobileNav {
+    display: block;
+  }
+
+  .mobileNavInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75em var(--px-2);
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* mobile nav style */
+
+  .mobileNavLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: var(--size-500);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .btnItem {
+    flex: 1 1 0%;
+  }
+
+  .userNavBoxInner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1 1 0%;
+  }
+
+  .userNavBoxInner > * + * {
+    position: relative;
+    margin-left: 0.75rem;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .header {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 1599px) {
+    .header {
+      grid-template-columns: 20% auto;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .mobileNav {
+      display: none;
+    }
+  }
+
+  .item {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    color: var(--text-color);
+    text-transform: uppercase;
+  }
+
+  .headerlogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: logo;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid var(--border-color);
+    // border-bottom: 1px solid var(--border-color);
+  }
+
+  .header_main_top {
+    grid-area: header-top;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .header_search {
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid var(--border-color);
+  }
+
+  .search__input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-transform: uppercase;
+    padding: 0.2rem 1.5rem 0;
+    font-size: var(--fs-static);
+    transition: 180ms box-shadow ease-in-out;
+  }
+
+  .header_controls {
+    display: flex;
+    white-space: nowrap;
+  }
+
+  .header_switcher_box {
+    display: flex;
+    border-right: 1px solid var(--border-color);
+    padding: var(--nav-padding) 1em;
+  }
+
+  .header_account_link,
+  .header_cart {
+    padding: var(--nav-padding) 1em;
+    border-right: 1px solid var(--border-color);
+  }
+
+  .header_main_bottom {
+    display: flex;
+    grid-area: header-bottom;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .header_nav.primary {
+    flex: 1;
+  }
+
+  .header_nav_item {
+    position: relative;
+  }
+
+  .header_nav_item a {
+    display: inline-flex;
+    padding: var(--nav-padding) 1rem;
+    white-space: nowrap;
+    transition: all 300ms ease;
+  }
+
+  .header_nav_item a:hover {
+    text-decoration: underline;
+  }
+</style>
