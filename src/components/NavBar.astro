@@ -1,9 +1,7 @@
 <header class='header'>
   <div class='header_container'>
     <nav class='header_navigation'>
-      <div class='mobile-toggle'>
-        <button>menu</button>
-      </div>
+      <button class='mobile-toggle mobile_btn'>menu</button>
 
       <div class='menu-container'>
         <ul class='menu'>
@@ -52,6 +50,9 @@
 
     .mobile-toggle {
       flex: 1;
+    }
+
+    .mobile_btn {
     }
 
     .logo {
@@ -109,7 +110,7 @@
 </style>
 
 <script>
-  const menuButton = document.querySelector('.menu-toggle');
+  const menuButton = document.querySelector('.mobile-toggle');
   const menuContainer = document.querySelector('.menu-container');
   const header = document.querySelector('.header');
 
