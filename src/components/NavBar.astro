@@ -1,10 +1,20 @@
 <header class='header'>
   <div class='header_container'>
     <nav class='header_navigation'>
-      <a class='mobile-toggle' href='#'> menu</a>
+      <div class='mobile-toggle'>
+        <button>menu</button>
+      </div>
+
+      <div class='menu-container'>
+        <ul class='menu'>
+          <li class='menu-item'><a href='#'>Menu item 1</a></li>
+          <li class='menu-item'><a href='#'>Menu item 2</a></li>
+          <li class='menu-item'><a href='#'>Menu item 3</a></li>
+        </ul>
+      </div>
 
       <div class='logo'>
-        <a href='#'><img src='bc.svg' alt='Logo' /></a>
+        <a href='#'><img src='/public/bc.svg' alt='Logo' /></a>
       </div>
       <div class='button'>
         <a href='#' class='header_btn btn'>start</a>
@@ -21,6 +31,10 @@
     border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
     transition: background 0.3s;
     min-height: 70px;
+
+    &.open {
+      background-color: #fc81b4;
+    }
   }
 
   .header_container {
@@ -60,5 +74,47 @@
         padding: 0 10px;
       }
     }
+
+    .menu-container {
+      position: fixed;
+      top: 70px;
+      left: 0px;
+      bottom: 0px;
+      width: 100%;
+      overflow: hidden;
+
+      .menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        background: #fc81b4;
+        height: 100vh;
+        will-change: transform;
+
+        .menu-item {
+          display: block;
+          width: 100%;
+          padding: 20px;
+          text-align: center;
+        }
+      }
+    }
+
+    .menu-container.open .menu {
+      opacity: 1;
+    }
   }
 </style>
+
+<script>
+  const menuButton = document.querySelector('.menu-toggle');
+  const menuContainer = document.querySelector('.menu-container');
+  const header = document.querySelector('.header');
+
+  menuButton.addEventListener('click', () => {
+    menuContainer.classList.toggle('open');
+    header.classList.toggle('open');
+  });
+</script>
